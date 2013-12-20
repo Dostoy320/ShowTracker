@@ -1,0 +1,5 @@
+DATABASE = 'tmp/tracker.db'
+DEBUG = True
+SECRET_KEY = 'temp key'
+USERNAME = 'admin'
+PASSWORD = 'default'
