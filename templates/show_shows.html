@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_show') }}" method=post class=add-entry>
+      <dl>
+        <dt>Show:
+        <dd><input type=text size=30 name='show_name'>
+        <dt>Number of Seasons:
+        <dd><input type=text size=30 name='seasons_total'>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  <ul class=entries>
+  {% for show in shows %}
+    <li><h2>{{ show.show_name }}</h2>{{ show.seasons_total }}
+  {% else %}
+    <li><em>Unbelievable.  No shows here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

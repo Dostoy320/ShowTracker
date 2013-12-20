@@ -6,7 +6,7 @@ from contextlib import closing
 
 # configuration
 # TODO: move configuration to own file
-DATABASE = '/tmp/flaskr.db'
+DATABASE = 'tmp/tracker.db'
 DEBUG = True
 SECRET_KEY = 'temp key'
 USERNAME = 'admin'
@@ -40,20 +40,19 @@ def teardown_request(exception):
 
 @app.route('/')
 def show_shows():
-    cur = g.db.execute('select show, season, ep_number from shows order by id desc')
-    programs = [dict(show=row[0], season=row[1], ep_number=row[2]) for row in cur.fetchall()]
-    return render_template('show_shows.html', programs=programs)
+    cur = g.db.execute('select show_name, seasons_total from shows order by show_id desc')
+    shows = [dict(show_name=row[0], seasons_total=row[1]) for row in cur.fetchall()]
+    return render_template('show_shows.html', shows=shows)
 
 @app.route('/add', methods=['POST'])
 def add_show():
     if not session.get('logged_in'):
         abort(401)
-    g.db.execute('insert into shows (show, season, ep_number, ep_title) values (?, ?, ?, ?)',
-                    [request.form['show'], request.form['season'],
-                    request.form['ep_number'], request.form['text']])
+    g.db.execute('insert into shows (show_name, seasons_total) values (?, ?)',
+                    [request.form['show_name'], request.form['seasons_total']])
     g.db.commit()
     flash('New show was successfully entered')
-    return redirect(url_for('show_shows.html'))
+    return redirect(url_for('show_shows'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -73,7 +72,7 @@ def login():
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('show_shows'))
 
 
 if __name__ == '__main__':
