@@ -1,21 +1,14 @@
 # imports
 import sqlite3
 from flask import Flask, g, abort
+from flask.ext.sqlalchemy import SQLAlchemy
 from contextlib import closing
 
-# configuration
-# TODO: move configuration to own file
-DATABASE = 'showtracker/tmp/tracker.db'
-DEBUG = True
-SECRET_KEY = 'temp key'
-USERNAME = 'admin'
-PASSWORD = 'default'
-
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object('config')
+db = SQLAlchemy(app)
 
-import showtracker.views
-
+from showtracker import views, models
 
 
 # Database stuff:

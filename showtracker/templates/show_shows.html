@@ -2,8 +2,29 @@
 {% block body %}
   <ul class=entries>
   {% for show in shows %}
-    <li><h2>{{ show.show_name }}</h2>{{ show.seasons_total }}
-  {% else %}
+
+    <!-- If logged in, link to episode add -->
+    {% if session.logged_in %}
+    <li><a href="{{ url_for('new_episodes') }}?value={{ show.name }}">
+    <h2>{{ show.name }}</h2></a></li>
+    <ul>
+      {% for episode in show.episodes %}
+        <li>{{ episode.title }}(S{{episode.season}})
+      {% endfor %} </li>
+    </ul>
+
+    <!-- If not logged, limit to list of shows -->
+    {% else %}
+    <h2>{{ show.name }}</h2></a></li>
+    <ul>
+      {% for episode in show.episodes %}
+        <li>{{ episode.title }}(S{{episode.season}})
+      {% endfor %} </li>
+    </ul>
+    {% endif %}
+
+    <!-- If no shows, say this: -->
+    {% else %}
     <li><em>Unbelievable.  No shows here so far</em>
   {% endfor %}
   </ul>

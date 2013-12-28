@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('add_eps') }}" method=post class=add-entry>
+    {{ show.name }}
+        <br>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name='ep_title'>
+        <dt>Season:
+        <dd><input type=text size=10 name='season'>
+        <dd><input type='hidden' name='id' value={{ show.id }}
+        <dd><input type=submit value=Add>
+      </dl>
+    </form>
+  {% endif %}
+  {% block details %}{% endblock %}
+{% endblock %}

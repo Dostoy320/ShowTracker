@@ -7,9 +7,9 @@ create table shows (
 
 drop table if exists episodes;
 create table episodes (
-  id integer primary key autoincrement,
+  ep_id integer primary key autoincrement,
   ep_season integer not null,
-  ep_name text not null,
-  show_name integer,
-  FOREIGN KEY(show_name) REFERENCES shows(show_id)
+  ep_name text,
+  show_id integer,
+  FOREIGN KEY(show_id) REFERENCES shows(show_id)
 );

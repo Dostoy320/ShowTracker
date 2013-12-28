@@ -1,5 +1,5 @@
 #ShowTracker
 
 ###TODO:
-move views to a separate module
+move config to a separate file
 

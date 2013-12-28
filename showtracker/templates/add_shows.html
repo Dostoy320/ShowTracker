@@ -6,9 +6,12 @@
         <dt>Show:
         <dd><input type=text size=30 name='show_name'>
         <dt>Number of Seasons:
-        <dd><input type=text size=30 name='seasons_total'>
-        <dd><input type=submit value=Share>
+        <dd><input type=text size=7 name='seasons_total'>
+        <dt>Episodes per Season:
+        <dd><input type=text size=7 name='eps_per_season'>
+        <dd><input type=submit value=Add>
       </dl>
     </form>
   {% endif %}
+  {% block details %}{% endblock %}
 {% endblock %}

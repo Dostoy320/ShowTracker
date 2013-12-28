@@ -1,26 +1,50 @@
-from showtracker import app
-from flask import render_template, g, session, flash, redirect, url_for, request
+from showtracker import app, db
+from models import Show, Episode
+from flask import render_template, g, session, flash, redirect, url_for, \
+    request, abort
 
 
 @app.route('/')
 def show_shows():
-    cur = g.db.execute('select show_name, seasons_total from shows order by show_id desc')
-    shows = [dict(show_name=row[0], seasons_total=row[1]) for row in cur.fetchall()]
-    return render_template('show_shows.html', shows=shows)
+    shows = Show.query.all()
+    episodes = Episode.query.all()
+    return render_template('show_shows.html', shows=shows, episodes=episodes)
+
 
 @app.route('/new')
-def new_shows():
+def new_show():
     return render_template('add_shows.html')
+
+
+@app.route('/new_eps')
+def new_episodes():
+    retrieve = request.args.get('value')
+    show = Show.query.filter_by(name=retrieve).first()
+    return render_template('add_episodes.html', show=show)
+
 
 @app.route('/add', methods=['POST'])
 def add_show():
     if not session.get('logged_in'):
         abort(401)
-    g.db.execute('insert into shows (show_name, seasons_total) values (?, ?)',
-                    [request.form['show_name'], request.form['seasons_total']])
-    g.db.commit()
+    new_show = Show(name=request.form['show_name'],
+                    total_seasons=request.form['seasons_total'])
+    db.session.add(new_show)
+    db.session.commit()
     flash('New show was successfully entered')
     return redirect(url_for('show_shows'))
+
+
+@app.route('/add_eps', methods=['POST'])
+def add_eps():
+    new_episode = Episode(title=request.form['ep_title'],
+                          season=request.form['season'],
+                          show_id=request.form['id'])
+    db.session.add(new_episode)
+    db.session.commit()
+    flash('Episode entered successfully')
+    return redirect(url_for('show_shows'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -35,6 +59,7 @@ def login():
             flash('You were logged in')
             return redirect(url_for('show_shows'))
     return render_template('login.html', error=error)
+
 
 @app.route('/logout')
 def logout():
