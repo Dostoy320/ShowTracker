@@ -1,17 +1,21 @@
 {% extends "layout.html" %}
 {% block body %}
   {% if session.logged_in %}
-    <form action="{{ url_for('add_show') }}" method=post class=add-entry>
+    <form action="{{ url_for('search_show') }}" method=post class=add-entry>
       <dl>
         <dt>Show:
         <dd><input type=text size=30 name='show_name'>
-        <dt>Number of Seasons:
-        <dd><input type=text size=7 name='seasons_total'>
-        <dt>Episodes per Season:
-        <dd><input type=text size=7 name='eps_per_season'>
-        <dd><input type=submit value=Add>
+        <dd><input type=submit value=Search>
       </dl>
     </form>
+  {% endif %}
+  {% if choices %}
+  <p>There are multiple results for <strong>{{ choices[0]['name'] }}</strong>.<br>
+     Can you narrow it down by year?</p>
+    <ul>
+    {% for choice in choices %}
+      <li>{{ choice['year'] }}</li>
+    {% endfor %}
   {% endif %}
   {% block details %}{% endblock %}
 {% endblock %}
