@@ -9,13 +9,22 @@
       </dl>
     </form>
   {% endif %}
+  <!-- Return list of shows from query -->
   {% if choices %}
-  <p>There are multiple results for <strong>{{ choices[0]['name'] }}</strong>.<br>
-     Can you narrow it down by year?</p>
+  <p>Results for <strong>{{ choices[0]['name'] }}</strong>:
     <ul>
     {% for choice in choices %}
-      <li>{{ choice['year'] }}</li>
+      <li><a href="{{ url_for('retrieve_show') }}?value={{ choice['id'] }}">
+      {{ choice['name'] }} {{ choice['first_air_date'] }}</li>
     {% endfor %}
+  {% endif %}
+  <!-- Return info for specific show -->
+  {% if show %}
+    <strong>{{ show['name'] }}</strong><br>
+    <p>{{ show['overview'] }}</p>
+    <form action="{{ url_for('add_show') }}" method="post" class=add-entry>
+    <input type='hidden' name='id' value={{ show['id'] }}>
+    <input type="submit" value="Add Show">
   {% endif %}
   {% block details %}{% endblock %}
 {% endblock %}

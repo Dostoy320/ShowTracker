@@ -4,8 +4,8 @@ from showtracker import db
 class Show(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
+    tmdb_id = db.Column(db.Integer)
     total_seasons = db.Column(db.Integer)
-    eps_per_season = db.Column(db.Integer)
     episodes = db.relationship('Episode', backref='series')
 
     def __repr__(self):
