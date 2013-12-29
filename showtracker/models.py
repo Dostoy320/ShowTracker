@@ -10,12 +10,13 @@ class Show(db.Model):
 
     def __repr__(self):
         return "<Show(name='%s', total_seasons='%s')>" % (self.name,
-            self.total_seasons)
+                                                          self.total_seasons)
 
 
 class Episode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250))
+    ep_number = db.Column(db.Integer)
     season = db.Column(db.Integer)
     watched = db.Column(db.Boolean, default=False)
     date_watched = db.Column(db.DateTime)

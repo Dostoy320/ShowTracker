@@ -5,21 +5,16 @@
 
     <!-- If logged in, link to episode add -->
     {% if session.logged_in %}
-    <li><a href="{{ url_for('new_episodes') }}?value={{ show.name }}">
-    <h2>{{ show.name }}</h2></a></li>
-    <ul>
-      {% for episode in show.episodes %}
-        <li>{{ episode.title }}(S{{episode.season}})
-      {% endfor %} </li>
-    </ul>
+    <li><a href="{{ url_for('show_detail') }}?value={{ show.name }}">
+    <h3>{{ show.name }}</h3></a></li>
 
     <!-- If not logged, limit to list of shows -->
     {% else %}
-    <h2>{{ show.name }}</h2></a></li>
+    <li><h3>{{ show.name }}</h3></li>
     <ul>
-      {% for episode in show.episodes %}
-        <li>{{ episode.title }}(S{{episode.season}})
-      {% endfor %} </li>
+    <!--  {% for episode in show.episodes %}
+        <li>{{ episode.title }} (S{{episode.season}})
+      {% endfor %} </li> -->
     </ul>
     {% endif %}
 

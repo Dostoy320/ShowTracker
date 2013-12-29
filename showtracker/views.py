@@ -1,7 +1,7 @@
 from showtracker import app, db
 from models import Show, Episode
 from api_parser import MovieDatabase
-from flask import render_template, g, session, flash, redirect, url_for, \
+from flask import render_template, session, flash, redirect, url_for, \
     request, abort
 
 
@@ -10,6 +10,19 @@ def show_shows():
     shows = Show.query.all()
     episodes = Episode.query.all()
     return render_template('show_shows.html', shows=shows, episodes=episodes)
+
+
+@app.route('/show_detail')
+def show_detail():
+    name = request.args.get('value')
+    show = Show.query.filter_by(name=name).first()
+    seasons = show.total_seasons
+    season_object = []
+    for season in range(seasons):
+        single = Episode.query.filter_by(season=season).all()
+        season_object.append(single)
+    return render_template('show_detail.html', show=show, seasons=seasons,
+                           season_object=season_object)
 
 
 @app.route('/new')
@@ -37,18 +50,20 @@ def add_show():
     db.session.add(new_show)
     db.session.commit()
     show = Show.query.filter_by(name=result['name']).first()
-    seasons = result['number_of_seasons']
+    if result['number_of_seasons'] is None:
+        seasons = 1
+    else:
+        seasons = result['number_of_seasons']
     # Add all seasons and episodes to database
     for season in range(seasons):
         result = api_session.seasons(request.form['id'], season)
-        for episode in result['episodes']:
+        for episode in result.get('episodes'):
             new_episode = Episode(title=episode['name'],
+                                  ep_number=episode['episode_number'],
                                   season=result['season_number'],
                                   show_id=show.id)
             db.session.add(new_episode)
     db.session.commit()
-
-
     flash('New show was successfully entered')
     return redirect(url_for('show_shows'))
 
@@ -68,7 +83,6 @@ def retrieve_show():
     result = api_session.retrieve(request.args.get('value'))
     seasons = result['number_of_seasons']
     return render_template('add_shows.html', show=result, seasons=seasons)
-
 
 
 @app.route('/add_eps', methods=['POST'])

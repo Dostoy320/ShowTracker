@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div id='show_focus'>
+    <h2>{{ show.name }}</h2>
+  <ul id='season_list'>
+  {% for season in range(seasons) %}
+    {% if season == 0 %}
+      {% set season = ' Extras' %}
+      <li>{{ season }}</li>
+    {% else %}
+      <li>Season{{ season }}</li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+  {% for episode in season_object[0] %}
+    {% set x = 0 %}
+    {{ season_object[0][x]['title'] }}
+  
+  {% endfor %}
+
+
+
+
+
+{% endblock %}

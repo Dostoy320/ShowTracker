@@ -6,6 +6,10 @@
     + from showtracker import db
     + db.create.all()
 
-###TODO:
-move config to a separate file
+####Work with API
++ From api_parser import MovieDatabase
++ Initialize session: sess = MovieDatabase()
++ Use methods: search/retrieve/seasons
++ Pretty Print: from pprint import pprint
+    + pprint(result)
 
