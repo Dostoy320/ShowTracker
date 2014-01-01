@@ -2,7 +2,7 @@ from showtracker import app, db
 from models import Show, Episode
 from api_parser import MovieDatabase
 from flask import render_template, session, flash, redirect, url_for, \
-    request, abort
+    request, abort, jsonify
 
 
 @app.route('/')
@@ -17,12 +17,38 @@ def show_detail():
     name = request.args.get('value')
     show = Show.query.filter_by(name=name).first()
     seasons = show.total_seasons
-    season_object = []
-    for season in range(seasons):
-        single = Episode.query.filter_by(season=season).all()
-        season_object.append(single)
+    episodes = Episode.query.filter_by(show_id=show.id).all()
     return render_template('show_detail.html', show=show, seasons=seasons,
-                           season_object=season_object)
+                           episodes=episodes)
+
+
+@app.route('/episode_detail')
+def episode_detail():
+    show_id = request.args.get('id')
+    season = request.args.get('season')
+    episodes = Episode.query.filter_by(
+        show_id=show_id).filter_by(season=season).all()
+    if episodes != "":
+        episodes_d = {}
+        for i, episode in enumerate(episodes):
+            episodes_d[i] = [episode.title, episode.id, episode.watched]
+            print "episodes: ", episodes_d
+    return jsonify(episodes_d)
+
+
+@app.route('/episode_status')
+def episode_status():
+    episode_id = request.args.get('ep_id')
+    status = request.args.get('status')
+    query = Episode.query.filter_by(id=episode_id).first()
+    if status == "watched":
+        query.watched = True
+        result = {"watched": "true"}
+    else:
+        query.watched = False
+        result = {"watched": "false"}
+    db.session.commit()
+    return jsonify(result)
 
 
 @app.route('/new')
@@ -54,9 +80,9 @@ def add_show():
         seasons = 1
     else:
         seasons = result['number_of_seasons']
-    # Add all seasons and episodes to database
+    # Add all seasons and episodes to database (+1 for 0 index)
     for season in range(seasons):
-        result = api_session.seasons(request.form['id'], season)
+        result = api_session.seasons(request.form['id'], season + 1)
         for episode in result.get('episodes'):
             new_episode = Episode(title=episode['name'],
                                   ep_number=episode['episode_number'],

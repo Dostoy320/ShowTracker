@@ -4,23 +4,17 @@
     <h2>{{ show.name }}</h2>
   <ul id='season_list'>
   {% for season in range(seasons) %}
-    {% if season == 0 %}
-      {% set season = ' Extras' %}
-      <li>{{ season }}</li>
-    {% else %}
-      <li>Season{{ season }}</li>
-    {% endif %}
+    <li><div class="season_select" season={{ season + 1 }}>Season {{ season + 1 }}</div></li>
   {% endfor %}
   </ul>
+  <ul id='ep_list'></ul>
 
-  {% for episode in season_object[0] %}
-    {% set x = 0 %}
-    {{ season_object[0][x]['title'] }}
-  
-  {% endfor %}
-
-
-
+  <script type="text/javascript">
+  // Assign Jinja2 values to JS variables
+  var id = {{ show.id }};
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+  </script>
+  <script src="{{ url_for('static', filename='scripts/show_detail.js') }}"></script>
 
 
 {% endblock %}

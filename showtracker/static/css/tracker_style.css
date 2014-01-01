@@ -3,5 +3,21 @@ li {
 }
 
 #season_list li {
+	margin-right: 10px;
 	display: inline-block;
+}
+
+.season_select {
+	color: blue;
+	cursor: pointer;
+}
+
+#ep_list li {
+	margin: 0 0 5px 0;
+	width: 300px;
+	cursor: pointer;
+}
+
+#ep_list .watched_true {
+	text-decoration: line-through;
 }
