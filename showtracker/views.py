@@ -70,16 +70,17 @@ def add_show():
     # Connect to The Movie Database API
     api_session = MovieDatabase()
     result = api_session.retrieve(request.form['id'])
-    new_show = Show(name=result['name'],
-                    tmdb_id=request.form['id'],
-                    total_seasons=result['number_of_seasons'])
-    db.session.add(new_show)
-    db.session.commit()
-    show = Show.query.filter_by(name=result['name']).first()
+    # Handle shows with seasons:None
     if result['number_of_seasons'] is None:
         seasons = 1
     else:
         seasons = result['number_of_seasons']
+    new_show = Show(name=result['name'],
+                    tmdb_id=request.form['id'],
+                    total_seasons=seasons)
+    db.session.add(new_show)
+    db.session.commit()
+    show = Show.query.filter_by(name=result['name']).first()
     # Add all seasons and episodes to database (+1 for 0 index)
     for season in range(seasons):
         result = api_session.seasons(request.form['id'], season + 1)

@@ -10,7 +10,7 @@ class TrackerTestCase(unittest.TestCase):
         self.db_fd, showtracker.app.config['DATABASE'] = tempfile.mkstemp()
         showtracker.app.config['TESTING'] = True
         self.app = showtracker.app.test_client()
-        showtracker.init_db()
+        showtracker.db
 
     def tearDown(self):
         os.close(self.db_fd)
@@ -37,7 +37,13 @@ class TrackerTestCase(unittest.TestCase):
 
     def test_empty_db(self):
         rv = self.app.get('/')
-        assert 'Northern' in rv.data
+        assert '' in rv.data
+
+    def test_add_results(self):
+        self.login('admin', 'default')
+        rv = self.app.get('/new')
+        print rv.data
+        self.assertIn('Shows', rv.data)
 
 
 
