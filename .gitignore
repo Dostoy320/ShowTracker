@@ -3,3 +3,4 @@ vshow/
 showtracker/schema.sql
 api
 keys.py
+tracker.db
