@@ -1,5 +1,6 @@
 from showtracker import app, db
-from models import Show, Episode
+from models import ROLE_USER, User, Show, Episode
+from forms import SignupForm, LoginForm
 from api_parser import MovieDatabase
 from flask import render_template, session, flash, redirect, url_for, \
     request, abort, jsonify
@@ -65,7 +66,7 @@ def new_episodes():
 
 @app.route('/add', methods=['POST'])
 def add_show():
-    if not session.get('logged_in'):
+    if not session.get('username'):
         abort(401)
     # Connect to The Movie Database API
     api_session = MovieDatabase()
@@ -97,7 +98,7 @@ def add_show():
 
 @app.route('/search', methods=['POST'])
 def search_show():
-    if not session.get('logged_in'):
+    if not session.get('username'):
         abort(401)
     api_session = MovieDatabase()
     result = api_session.search(request.form['show_name'])
@@ -125,21 +126,41 @@ def add_eps():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    error = None
+    form = LoginForm()
+
     if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
-            error = 'Invalid username'
-        elif request.form['password'] != app.config['PASSWORD']:
-            error = 'Invalid password'
+        if form.validate() is False:
+            return render_template('login.html', form=form)
         else:
-            session['logged_in'] = True
-            flash('You were logged in')
+            session['username'] = form.username.data
             return redirect(url_for('show_shows'))
-    return render_template('login.html', error=error)
+
+    elif request.method == 'GET':
+        return render_template('login.html', form=form)
 
 
 @app.route('/logout')
 def logout():
-    session.pop('logged_in', None)
-    flash('You were logged out')
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    session.pop('username', None)
     return redirect(url_for('show_shows'))
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignupForm()
+
+    if request.method == 'POST':
+        if form.validate() is False:
+            return render_template('signup.html', form=form)
+        else:
+            new_user = User(form.username.data, form.email.data,
+                            form.password.data, ROLE_USER)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('show_shows'))
+
+    elif request.method == 'GET':
+        return render_template('signup.html', form=form)

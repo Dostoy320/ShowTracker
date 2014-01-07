@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-	<h2>Log In</h2>
+	<h2>Signup</h2>
 
 	{% for message in form.username.errors %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in form.email.errors %}
 		<div class="flash">{{ message }}</div>
 	{% endfor %}
 
@@ -11,15 +15,21 @@
 		<div class="flash">{{ message }}</div>
 	{% endfor %}
 
-	<form action="{{ url_for('login') }}" method=post>
+	<form action="{{ url_for('signup') }}" method=post>
 		{{ form.hidden_tag() }}
 
 		{{ form.username.label }}
+		<br>
 		{{ form.username }}
-
+		<br>
+		{{ form.email.label }}
+		<br>
+		{{ form.email }}
+		<br>
 		{{ form.password.label }}
+		<br>
 		{{ form.password }}
-
+		<br>
 		{{ form.submit }}
 	</form>
 

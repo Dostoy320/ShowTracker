@@ -21,3 +21,13 @@ li {
 #ep_list .watched_true {
 	text-decoration: line-through;
 }
+
+/* Signup form */
+form input#username,
+form input#email,
+form input#password {
+	margin: 5px 0 10px 0;
+}
+form input#password {
+	margin-bottom: 15px;
+}

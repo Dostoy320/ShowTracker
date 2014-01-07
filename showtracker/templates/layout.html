@@ -6,8 +6,9 @@
 	<h1>ShowTracker</h1>
 	<div class=metanav>
 	<a href="{{ url_for('show_shows') }}">Show Shows</a>
-	{% if not session.logged_in %}
+	{% if not session.username %}
 	  <a href="{{ url_for('login') }}">log in</a>
+	  <a href="{{ url_for('signup') }}">Sign Up</a>
 	{% else %}
 	  <a href="{{ url_for('logout') }}">log out</a>
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
