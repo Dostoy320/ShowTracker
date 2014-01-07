@@ -5,3 +5,4 @@ api
 keys.py
 tracker.db
 db_repository/
+showtracker/static/scripts/jquery-1.10.2.js
