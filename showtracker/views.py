@@ -1,6 +1,6 @@
 from showtracker import app, db
 from models import ROLE_USER, User, Show, Episode
-from forms import SignupForm, LoginForm
+from forms import SignupForm, LoginForm, AddShow
 from api_parser import MovieDatabase
 from flask import render_template, session, flash, redirect, url_for, \
     request, abort, jsonify
@@ -52,39 +52,53 @@ def episode_status():
     return jsonify(result)
 
 
-@app.route('/new')
+@app.route('/new', methods=['GET', 'POST'])
 def new_show():
-    return render_template('add_shows.html')
+    form = AddShow()
+
+    if request.method == 'POST':
+        if form.validate() is False:
+            return render_template('add_shows.html', form=form)
+        else:
+            api_session = MovieDatabase()
+            result = api_session.search(form.show_name.data)
+            return render_template('add_shows.html', form=form, choices=result)
+    elif request.method == 'GET':
+        return render_template('add_shows.html', form=form)
 
 
-@app.route('/new_eps')
-def new_episodes():
-    retrieve = request.args.get('value')
-    show = Show.query.filter_by(name=retrieve).first()
-    return render_template('add_episodes.html', show=show)
+@app.route('/retrieve_show')
+def retrieve_show():
+    api_session = MovieDatabase()
+    result = api_session.retrieve(request.args.get('value'))
+    form = AddShow(show_id=result['id'])
+    seasons = result['number_of_seasons']
+    return render_template('add_shows.html', show=result, seasons=seasons,
+                           form=form)
 
 
 @app.route('/add', methods=['POST'])
 def add_show():
+    form = AddShow()
     if not session.get('username'):
         abort(401)
     # Connect to The Movie Database API
     api_session = MovieDatabase()
-    result = api_session.retrieve(request.form['id'])
+    result = api_session.retrieve(form.show_id.data)
     # Handle shows with seasons:None
     if result['number_of_seasons'] is None:
         seasons = 1
     else:
         seasons = result['number_of_seasons']
     new_show = Show(name=result['name'],
-                    tmdb_id=request.form['id'],
+                    tmdb_id=form.show_id.data,
                     total_seasons=seasons)
     db.session.add(new_show)
     db.session.commit()
     show = Show.query.filter_by(name=result['name']).first()
     # Add all seasons and episodes to database (+1 for 0 index)
     for season in range(seasons):
-        result = api_session.seasons(request.form['id'], season + 1)
+        result = api_session.seasons(form.show_id.data, season + 1)
         for episode in result.get('episodes'):
             new_episode = Episode(title=episode['name'],
                                   ep_number=episode['episode_number'],
@@ -96,6 +110,13 @@ def add_show():
     return redirect(url_for('show_shows'))
 
 
+@app.route('/new_eps')
+def new_episodes():
+    retrieve = request.args.get('value')
+    show = Show.query.filter_by(name=retrieve).first()
+    return render_template('add_episodes.html', show=show)
+
+
 @app.route('/search', methods=['POST'])
 def search_show():
     if not session.get('username'):
@@ -105,12 +126,7 @@ def search_show():
     return render_template('add_shows.html', choices=result)
 
 
-@app.route('/retrieve_show')
-def retrieve_show():
-    api_session = MovieDatabase()
-    result = api_session.retrieve(request.args.get('value'))
-    seasons = result['number_of_seasons']
-    return render_template('add_shows.html', show=result, seasons=seasons)
+
 
 
 @app.route('/add_eps', methods=['POST'])

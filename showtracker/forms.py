@@ -1,5 +1,6 @@
 from flask_wtf import Form
-from wtforms import TextField, SubmitField, PasswordField, validators
+from wtforms import (TextField, SubmitField, PasswordField, HiddenField,
+                     validators)
 from models import User
 
 
@@ -46,3 +47,21 @@ class LoginForm(Form):
         else:
             self.username.errors.append("Invalid username or password")
             return False
+
+
+class AddShow(Form):
+    show_name = TextField("Show Name:", [validators.Required("Please enter"
+                          " a show name.")])
+    search = SubmitField("Search")
+    show_id = HiddenField()
+    submit = SubmitField("Add Show")
+
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)
+
+    def validate(self):
+        if not Form.validate(self):
+            return False
+        else:
+            return True

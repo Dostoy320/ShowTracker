@@ -1,14 +1,22 @@
 {% extends "layout.html" %}
 {% block body %}
   {% if session.username %}
-    <form action="{{ url_for('search_show') }}" method=post class=add-entry>
-      <dl>
-        <dt>Show:
-        <dd><input type=text size=30 name='show_name'>
-        <dd><input type=submit value=Search>
-      </dl>
+
+    {% for message in form.show_name.errors %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    <form action="{{ url_for('new_show') }}" method=post class=add-entry>
+      {{ form.hidden_tag() }}
+
+      {{ form.show_name.label }}
+      {{ form.show_name }}
+
+      {{ form.search }}
     </form>
+
   {% endif %}
+
   <!-- Return list of shows from query -->
   {% if choices %}
   <p>Results for <strong>{{ choices[0]['name'] }}</strong>:
@@ -18,14 +26,16 @@
       {{ choice['name'] }} {{ choice['first_air_date'] }}</li>
     {% endfor %}
   {% endif %}
+
   <!-- Return info for specific show -->
   {% if show %}
     <strong>{{ show['name'] }}</strong><br>
     <p>{{ show['overview'] }}</p>
-    <form action="{{ url_for('add_show') }}" method="post" class=add-entry>
-    <input type='hidden' name='id' value={{ show['id'] }}>
-    <input type="submit" value="Add Show">
+    <form action="{{ url_for('add_show') }}" method=post class=add-entry>
+      {{ form.show_id }}
+      {{ form.submit }}
     </form>
   {% endif %}
+
   {% block details %}{% endblock %}
 {% endblock %}
