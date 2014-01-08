@@ -25,6 +25,7 @@
     <form action="{{ url_for('add_show') }}" method="post" class=add-entry>
     <input type='hidden' name='id' value={{ show['id'] }}>
     <input type="submit" value="Add Show">
+    </form>
   {% endif %}
   {% block details %}{% endblock %}
 {% endblock %}
