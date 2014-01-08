@@ -49,17 +49,17 @@ class LoginForm(Form):
             return False
 
 
-class AddShow(Form):
+class AddShow(Form):  # Corresponds to add_shows.html
     show_name = TextField("Show Name:", [validators.Required("Please enter"
                           " a show name.")])
     search = SubmitField("Search")
     show_id = HiddenField()
     submit = SubmitField("Add Show")
 
-
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
 
+# TODO: Work out some better form validation in this section, for christ's sake.
     def validate(self):
         if not Form.validate(self):
             return False
