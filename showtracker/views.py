@@ -96,15 +96,14 @@ def add_show():
     db.session.add(new_show)
     db.session.commit()
     show = Show.query.filter_by(name=result['name']).first()
-    # Add all seasons and episodes to database (+1 for 0 index)
-    for season in range(seasons):
-        result = api_session.seasons(form.show_id.data, season)
-        if result.get('status_code'):
-            result = api_session.seasons(form.show_id.data, season + 1)
-        for episode in result.get('episodes'):
+    for season in result.get('seasons'):
+        print season['season_number']
+        current = api_session.seasons(form.show_id.data,
+                                      season['season_number'])
+        for episode in current.get('episodes'):
             new_episode = Episode(title=episode['name'],
                                   ep_number=episode['episode_number'],
-                                  season=result['season_number'],
+                                  season=season['season_number'],
                                   show_id=show.id)
             db.session.add(new_episode)
     db.session.commit()
