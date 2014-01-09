@@ -4,7 +4,15 @@
     <h2>{{ show.name }}</h2>
   <ul id='season_list'>
   {% for season in range(seasons) %}
+
+    {# This if statement handles the variation in seasons starting at 0 or 1. #}
+
+    {% if episodes[0].season == 0 %}
+    <li><div class="season_select" season={{ season }}>Season {{ season }}</div></li>
+    {% else %}
     <li><div class="season_select" season={{ season + 1 }}>Season {{ season + 1 }}</div></li>
+    {% endif %}
+
   {% endfor %}
   </ul>
   <ul id='ep_list'></ul>
