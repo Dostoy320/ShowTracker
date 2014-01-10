@@ -26,8 +26,8 @@ class TrackerTestCase(unittest.TestCase):
         return self.app.get('/logout', follow_redirects=True)
 
     def test_login_logout(self):
-        rv = self.login('admin', 'default')
-        assert 'You were logged in' in rv.data
+        rv = self.login('Test', 'pass')
+        assert 'You are logged in' in rv.data
         rv = self.logout()
         assert 'You were logged out' in rv.data
         rv = self.login('Hamms', 'default')

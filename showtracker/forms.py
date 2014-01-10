@@ -18,7 +18,6 @@ class SignupForm(Form):
         # Checks that all validators are happy
         if not Form.validate(self):
             return False
-
         user = User.query.filter_by(email=self.email.data.lower()).first()
         if user:
             self.email.errors.append("That email is already taken.")

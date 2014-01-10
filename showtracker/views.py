@@ -154,6 +154,7 @@ def login():
             return render_template('login.html', form=form)
         else:
             session['username'] = form.username.data
+            flash('You are logged in.')
             return redirect(url_for('show_shows'))
 
     elif request.method == 'GET':
