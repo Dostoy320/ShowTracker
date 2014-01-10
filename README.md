@@ -26,7 +26,7 @@ the data for a given show.
     + `show = sess.retrieve(4396)`
     + `season1 = sess.seasons(4396, 1)`
 + Pretty Print is nice for reading the results: `from pprint import pprint`
-    + `pprint(NE1)`
+    + `pprint(season1)`
 
 
 ####ToDo:
