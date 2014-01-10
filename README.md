@@ -21,7 +21,7 @@ the data for a given show.
     + `retrieve()`: takes the show ID to gather specifics such as number of seasons
     + `seasons()`: takes the show ID and a season number and returns episodes
 + Example case:
-    + `sess = MovieDatabase`
+    + `sess = MovieDatabase()`
     + `show = sess.search('northern exposure')`
     + `show = sess.retrieve(4396)`
     + `season1 = sess.seasons(4396, 1)`
