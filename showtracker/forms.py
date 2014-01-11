@@ -1,4 +1,5 @@
 from flask_wtf import Form
+from flask import flash
 from wtforms import (TextField, SubmitField, PasswordField, HiddenField,
                      validators)
 from models import User

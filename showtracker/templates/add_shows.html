@@ -31,11 +31,13 @@
   {% if show %}
     <strong>{{ show['name'] }}</strong><br>
     <p>{{ show['overview'] }}</p>
-    <form action="{{ url_for('add_show') }}" method=post class=add-entry>
+    <form action="{{ url_for('add_show') }}" method=post id='show_submit' class='add-entry'>
       {{ form.show_id }}
       {{ form.submit }}
     </form>
   {% endif %}
+
+  <script src="{{ url_for('static', filename='scripts/add_show.js') }}"></script>
 
   {% block details %}{% endblock %}
 {% endblock %}
