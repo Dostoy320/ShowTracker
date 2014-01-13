@@ -30,7 +30,7 @@ the data for a given show.
 
 
 ####ToDo:
-+ Fix signup validation to halt duplicate usernames
++ <del>Fix signup validation to halt duplicate usernames</del>
 + Tie users to specific shows - *This is huge. Figure it out!*
 + Stop neglecting tests
 + Develop an environment where users can manipulate/delete shows/seasons/episodes
