@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block body %}
-  {% if session.username %}
 
     {% for message in form.show_name.errors %}
       <div class="flash">{{ message }}</div>
@@ -14,8 +13,6 @@
 
       {{ form.search }}
     </form>
-
-  {% endif %}
 
   <!-- Return list of shows from query -->
   {% if choices %}

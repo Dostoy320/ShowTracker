@@ -11,11 +11,6 @@
     <!-- If not logged, limit to list of shows -->
     {% else %}
     <li><h3>{{ show.name }}</h3></li>
-    <ul>
-    <!--  {% for episode in show.episodes %}
-        <li>{{ episode.title }} (S{{episode.season}})
-      {% endfor %} </li> -->
-    </ul>
     {% endif %}
 
     <!-- If no shows, say this: -->

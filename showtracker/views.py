@@ -8,9 +8,11 @@ from flask import render_template, session, flash, redirect, url_for, \
 
 @app.route('/')
 def show_shows():
-    shows = Show.query.all()
-    episodes = Episode.query.all()
-    return render_template('show_shows.html', shows=shows, episodes=episodes)
+    if session.get('username'):
+        shows = Show.query.all()
+        return render_template('show_shows.html', shows=shows)
+    else:
+        return render_template('welcome.html')
 
 
 @app.route('/show_detail')
@@ -55,7 +57,8 @@ def episode_status():
 @app.route('/new', methods=['GET', 'POST'])
 def new_show():
     form = AddShow()
-
+    if not session.get('username'):
+        abort(401)
     if request.method == 'POST':
         if form.validate() is False:
             return render_template('add_shows.html', form=form)
@@ -182,7 +185,7 @@ def signup():
                             form.password.data, ROLE_USER)
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for('show_shows'))
+            return redirect(url_for('login'))
 
     elif request.method == 'GET':
         return render_template('signup.html', form=form)
