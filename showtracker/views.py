@@ -1,5 +1,5 @@
 from showtracker import app, db
-from models import ROLE_USER, User, Show, Episode
+from models import ROLE_USER, User, Show, Episode, UserShows, UserEpisodes
 from forms import SignupForm, LoginForm, AddShow
 from api_parser import MovieDatabase
 from flask import render_template, session, flash, redirect, url_for, \
@@ -85,37 +85,64 @@ def add_show():
     form = AddShow()
     if not session.get('username'):
         abort(401)
-    # Connect to The Movie Database API and retrieve show data
-    api_session = MovieDatabase()
-    result = api_session.retrieve(form.show_id.data)
 
-    # Update Show table
-    new_show = Show(name=result['name'],
-                    tmdb_id=form.show_id.data)
-                   # total_seasons=seasons)
-    db.session.add(new_show)
-    db.session.commit()
+    # Check if requested show already exists in database:
+    existing_show = Show.query.filter_by(tmdb_id=form.show_id.data).first()
+    if existing_show:
+        user = User.query.filter_by(username=session.get('username')).first()
+        add_show = UserShows(user=user.id,
+                             show=existing_show.id)
+        for episode in existing_show.episodes:
+            add_episode = UserEpisodes(user=user.id,
+                                       episode=episode.id)
+            db.session.add(add_episode)
+        db.session.add(add_show)
+        db.session.commit()
+        flash('New show was successfully entered')
+        return redirect(url_for('show_shows'))
+    else:
+        # Connect to The Movie Database API and retrieve show data
+        api_session = MovieDatabase()
+        result = api_session.retrieve(form.show_id.data)
 
-    show = Show.query.filter_by(name=result['name']).first()
+        # Update Show table
+        new_show = Show(name=result['name'],
+                        tmdb_id=form.show_id.data)
+                    # total_seasons=seasons)
+        db.session.add(new_show)
+        db.session.commit()
 
-    # TMDB's "number_of_seasons" isn't accurate, so the number of seasons must
-    # be determined by the iterations through the list of seasons.
-    season_tally = 0
-    for season in result.get('seasons'):
-        print season['season_number']
-        current = api_session.seasons(form.show_id.data,
-                                      season['season_number'])
-        for episode in current.get('episodes'):
-            new_episode = Episode(title=episode['name'],
-                                  ep_number=episode['episode_number'],
-                                  season=season['season_number'],
-                                  show_id=show.id)
-            db.session.add(new_episode)
-        season_tally += 1
-    new_show.total_seasons = season_tally
-    db.session.commit()
-    flash('New show was successfully entered')
-    return redirect(url_for('show_shows'))
+        show = Show.query.filter_by(name=result['name']).first()
+
+        # TMDB's "number_of_seasons" isn't accurate, so the number of seasons
+        # must be determined by the iterations through the list of seasons.
+        season_tally = 0
+        for season in result.get('seasons'):
+            print season['season_number']
+            current = api_session.seasons(form.show_id.data,
+                                          season['season_number'])
+            for episode in current.get('episodes'):
+                new_episode = Episode(title=episode['name'],
+                                      ep_number=episode['episode_number'],
+                                      season=season['season_number'],
+                                      show_id=show.id)
+                db.session.add(new_episode)
+            season_tally += 1
+        new_show.total_seasons = season_tally
+        db.session.commit()
+
+        #TODO: This stuff below is repeated above.  Clean up?
+        user = User.query.filter_by(username=session.get('username')).first()
+        add_show = UserShows(user=user.id,
+                             show=show.id)
+        for episode in existing_show.episodes:
+            add_episode = UserEpisodes(user=user.id,
+                                       episode=episode.id)
+            db.session.add(add_episode)
+        db.session.add(add_show)
+        db.session.commit()
+        flash('New show was successfully entered')
+        return redirect(url_for('show_shows'))
 
 
 @app.route('/new_eps')

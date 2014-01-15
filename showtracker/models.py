@@ -51,3 +51,23 @@ class Episode(db.Model):
     def __repr__(self):
         return "<Episode(title='%s', season='%s', date watched='%s')>" % (
             self.title, self.season, self.date_watched)
+
+
+class UserShows(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    show = db.Column(db.Integer, db.ForeignKey('show.id'))
+
+    def __repr__(self):
+        return "<UserShows(user='%s', show='%s')>" % (self.user, self.show)
+
+
+class UserEpisodes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    episode = db.Column(db.Integer, db.ForeignKey('episode.id'))
+    watched = db.Column(db.Boolean, default=False)
+
+    def __repr__(self):
+        return "<UserEpisodes(user'%s', episode='%s', watched='%s')>" % (
+            self.user, self.episode, self.watched)

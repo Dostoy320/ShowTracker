@@ -37,6 +37,7 @@ the data for a given show.
 + Check for existing show in database before adding duplicate
 + Enable logging (to email?)
 + Work on styling with priority on mobile
++ date_watched
 
 
 
