@@ -33,6 +33,7 @@ class Show(db.Model):
     tmdb_id = db.Column(db.Integer)
     total_seasons = db.Column(db.Integer)
     episodes = db.relationship('Episode', backref='series')
+    usershows = db.relationship('UserShows', backref='series')
 
     def __repr__(self):
         return "<Show(name='%s', total_seasons='%s')>" % (self.name,
@@ -47,6 +48,7 @@ class Episode(db.Model):
     watched = db.Column(db.Boolean, default=False)
     date_watched = db.Column(db.DateTime)
     show_id = db.Column(db.Integer, db.ForeignKey('show.id'))
+    userepisodes = db.relationship('UserEpisodes', backref='episode')
 
     def __repr__(self):
         return "<Episode(title='%s', season='%s', date watched='%s')>" % (
@@ -65,9 +67,9 @@ class UserShows(db.Model):
 class UserEpisodes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    episode = db.Column(db.Integer, db.ForeignKey('episode.id'))
+    episode_id = db.Column(db.Integer, db.ForeignKey('episode.id'))
     watched = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return "<UserEpisodes(user'%s', episode='%s', watched='%s')>" % (
-            self.user, self.episode, self.watched)
+            self.user, self.episode_id, self.watched)

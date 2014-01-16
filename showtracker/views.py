@@ -9,7 +9,11 @@ from flask import render_template, session, flash, redirect, url_for, \
 @app.route('/')
 def show_shows():
     if session.get('username'):
-        shows = Show.query.all()
+        user = User.query.filter_by(username=session.get('username')).first()
+        usershows = UserShows.query.filter_by(user=user.id).all()
+        shows = []
+        for show in usershows:
+            shows.append(show.series)
         return render_template('show_shows.html', shows=shows)
     else:
         return render_template('welcome.html')
@@ -29,6 +33,9 @@ def show_detail():
 def episode_detail():
     show_id = request.args.get('id')
     season = request.args.get('season')
+    # "episodes" query needs to be somthing like this:
+    # episodes = UserEpisodes.query.filter_by(user=1).join(UserEpisodes.episode).filter_by(show_id=2).all()
+
     episodes = Episode.query.filter_by(
         show_id=show_id).filter_by(season=season).all()
     if episodes != "":
@@ -94,7 +101,7 @@ def add_show():
                              show=existing_show.id)
         for episode in existing_show.episodes:
             add_episode = UserEpisodes(user=user.id,
-                                       episode=episode.id)
+                                       episode_id=episode.id)
             db.session.add(add_episode)
         db.session.add(add_show)
         db.session.commit()
@@ -135,9 +142,9 @@ def add_show():
         user = User.query.filter_by(username=session.get('username')).first()
         add_show = UserShows(user=user.id,
                              show=show.id)
-        for episode in existing_show.episodes:
+        for episode in show.episodes:
             add_episode = UserEpisodes(user=user.id,
-                                       episode=episode.id)
+                                       episode_id=episode.id)
             db.session.add(add_episode)
         db.session.add(add_show)
         db.session.commit()
