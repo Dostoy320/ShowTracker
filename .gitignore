@@ -8,3 +8,5 @@ db_repository/
 showtracker/static/scripts/jquery-1.10.2.js
 data_design.ods
 .~lock.data_design.ods#
+showtracker/static/css/st_style/.sass-cache/
+showtracker/static/css/st_style/config.rb

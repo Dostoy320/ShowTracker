@@ -9,6 +9,11 @@ The app uses the [The Movie Database](http://www.themoviedb.org/) API to retriev
 the data for a given show.
 
 ###Development-level stuff:
+####Current stack:
++ 960 Grid System
++ Sass/Compass (css framework)
++ Jinja2 (HTML templating)
++ flask (python web framework )
 
 ####Database creation:
 + from /showtracker/: `python db_create.py`
@@ -16,7 +21,7 @@ the data for a given show.
 ####Work with the API in the python shell:
 + `from api_parser import MovieDatabase`
 + Initialize session: `sess = MovieDatabase()`
-+ Use methods: 
++ Use methods:
     + `search()`: takes string query to locate show ID on TMDB
     + `retrieve()`: takes the show ID to gather specifics such as number of seasons
     + `seasons()`: takes the show ID and a season number and returns episodes
@@ -28,13 +33,18 @@ the data for a given show.
 + Pretty Print is nice for reading the results: `from pprint import pprint`
     + `pprint(season1)`
 
+####CSS work with Sass/Compass:
++ From `static/css/`:
+    + `subl st_style/` - Opens the project in SublimeText
+    + `compass watch st_style/`- Watches for changes to .scss and updates .css
+
 
 ####ToDo:
 + <del>Fix signup validation to halt duplicate usernames</del>
-+ Tie users to specific shows - *This is huge. Figure it out!*
++ <del>Tie users to specific shows - *This is huge. Figure it out!*</del>
 + Stop neglecting tests
 + Develop an environment where users can manipulate/delete shows/seasons/episodes
-+ Check for existing show in database before adding duplicate
++ <del>Check for existing show in database before adding duplicate</del>
 + Enable logging (to email?)
 + Work on styling with priority on mobile
 + date_watched

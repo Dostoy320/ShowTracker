@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<head>
 <title>ShowTracker</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/tracker_style.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/st_style/stylesheets/style.css') }}">
 <script src="{{ url_for('static', filename='scripts/jquery-1.10.2.js') }}"></script>
-<div class=page>
+</head>
+<div id='container'>
+<header>
 	<h1>ShowTracker</h1>
-	<div class=metanav>
+	<div id='meta-nav'>
 	<a href="{{ url_for('show_shows') }}">Show Shows</a>
 	{% if not session.username %}
 	  <a href="{{ url_for('login') }}">log in</a>
@@ -14,8 +17,16 @@
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
 	{% endif %}
 	</div>
+	<div id='user'>
+	{% if session.username %}
+		<h3>{{ session.username }}</h3>
+	{% endif %}
+	</div>
+</header>
+<div id="main-content">
 	{% for message in get_flashed_messages() %}
 	  <div class=flash>{{ message }}</div>
 	{% endfor %}
 	{% block body %}{% endblock %}
+</div>
 </div>

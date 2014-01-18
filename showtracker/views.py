@@ -31,26 +31,30 @@ def show_detail():
 
 @app.route('/episode_detail')
 def episode_detail():
+    user = User.query.filter_by(username=session.get('username')).first()
     show_id = request.args.get('id')
     season = request.args.get('season')
-    # "episodes" query needs to be somthing like this:
-    # episodes = UserEpisodes.query.filter_by(user=1).join(UserEpisodes.episode).filter_by(show_id=2).all()
-
-    episodes = Episode.query.filter_by(
-        show_id=show_id).filter_by(season=season).all()
+    episodes = UserEpisodes.query \
+        .filter_by(user=user.id).join(UserEpisodes.episode) \
+        .filter_by(show_id=show_id).filter_by(season=season).all()
     if episodes != "":
         episodes_d = {}
         for i, episode in enumerate(episodes):
-            episodes_d[i] = [episode.title, episode.id, episode.watched]
+            episodes_d[i] = [episode.episode.title,
+                             episode.episode.id,
+                             episode.watched]
             print "episodes: ", episodes_d
     return jsonify(episodes_d)
 
 
 @app.route('/episode_status')
 def episode_status():
+    user = User.query.filter_by(username=session.get('username')).first()
     episode_id = request.args.get('ep_id')
     status = request.args.get('status')
-    query = Episode.query.filter_by(id=episode_id).first()
+    query = UserEpisodes.query \
+        .filter_by(episode_id=episode_id) \
+        .filter_by(user=user.id).first()
     if status == "watched":
         query.watched = True
         result = {"watched": "true"}

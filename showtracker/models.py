@@ -45,8 +45,6 @@ class Episode(db.Model):
     title = db.Column(db.String(250))
     ep_number = db.Column(db.Integer)
     season = db.Column(db.Integer)
-    watched = db.Column(db.Boolean, default=False)
-    date_watched = db.Column(db.DateTime)
     show_id = db.Column(db.Integer, db.ForeignKey('show.id'))
     userepisodes = db.relationship('UserEpisodes', backref='episode')
 
@@ -69,6 +67,7 @@ class UserEpisodes(db.Model):
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
     episode_id = db.Column(db.Integer, db.ForeignKey('episode.id'))
     watched = db.Column(db.Boolean, default=False)
+    date_watched = db.Column(db.DateTime)
 
     def __repr__(self):
         return "<UserEpisodes(user'%s', episode='%s', watched='%s')>" % (
