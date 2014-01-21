@@ -63,41 +63,46 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+/* Devices */
 /* Site color pallete */
-/* line 15, ../sass/style.scss */
+/* line 14, ../sass/style.scss */
 h1 {
   font-size: 30px;
   margin-bottom: 20px;
 }
 
-/* line 19, ../sass/style.scss */
+/* line 18, ../sass/style.scss */
 h2 {
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-/* line 23, ../sass/style.scss */
+/* line 22, ../sass/style.scss */
 h3 {
   font-size: 20px;
 }
 
-/* line 29, ../sass/style.scss */
+/* line 28, ../sass/style.scss */
 #container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 960px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
   border: 1px solid blue;
+  /* End header, footer */
 }
-/* line 35, ../sass/style.scss */
+/* line 34, ../sass/style.scss */
 #container header, #container footer {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 940px;
+  width: 300px;
+  margin-left: 0;
   border: 1px solid blue;
 }
 /* line 39, ../sass/style.scss */
@@ -107,9 +112,10 @@ h3 {
   margin-left: 10px;
   margin-right: 10px;
   width: 300px;
+  margin-left: 0;
   border: 1px solid blue;
 }
-/* line 43, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 #container header #user, #container footer #user {
   display: inline;
   float: left;
@@ -120,58 +126,74 @@ h3 {
   float: right;
   text-align: right;
 }
-/* line 51, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
 #container #main-content {
-  display: inline;
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 620px;
-  position: relative;
-  left: 160px;
-  border: 1px solid blue;
-  margin-top: 30px;
-}
-/* line 57, ../sass/style.scss */
-#container #main-content #season_list {
-  margin: 0;
-  padding: 0;
-  border: 0;
   overflow: hidden;
   *zoom: 1;
-  margin-bottom: 10px;
-}
-/* line 49, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
-#container #main-content #season_list li {
-  list-style-image: none;
-  list-style-type: none;
-  margin-left: 0;
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  white-space: nowrap;
+  width: 100%;
+  border: 1px solid blue;
+  float: left;
+  margin-top: 30px;
 }
 /* line 60, ../sass/style.scss */
-#container #main-content #season_list li {
-  cursor: pointer;
+#container #main-content #show_focus {
+  overflow: hidden;
+  *zoom: 1;
+  text-align: center;
 }
 /* line 65, ../sass/style.scss */
-#container #main-content #ep_list li {
-  cursor: pointer;
-  padding: 4px;
+#container #main-content #season_list {
+  margin-bottom: 10px;
 }
-/* line 69, ../sass/style.scss */
-#container #main-content #ep_list .watched_true {
+/* line 67, ../sass/style.scss */
+#container #main-content #season_list .season_select {
+  margin: 0 0 5px 0;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  background-color: #c7dbff;
+  font-size: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+/* line 76, ../sass/style.scss */
+#container #main-content #season_list .season_select .watched_false {
+  text-decoration: none;
+}
+/* line 79, ../sass/style.scss */
+#container #main-content #season_list .season_select .watched_true {
   text-decoration: line-through;
 }
-/* line 74, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 #container #main-content form[name='login'] label {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
   width: 100px;
+}
+
+/* End container */
+@media only screen and (min-width: 480px) {
+  /* line 94, ../sass/style.scss */
+  #container {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 460px;
+    overflow: hidden;
+    *zoom: 1;
+  }
+  /* line 98, ../sass/style.scss */
+  #container header, #container footer {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 460px;
+  }
+  /* line 101, ../sass/style.scss */
+  #container #main-content {
+    width: 100%;
+  }
 }

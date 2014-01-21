@@ -3,7 +3,18 @@
 $('.season_select').on('click', function() {
 
   // Clear previous results
-  $('#ep_list').html("");
+  if ($(this).children().length > 0) {
+    $('#episodes').remove();
+    return 1;
+  } else {
+    $('#episodes').remove();
+  }
+
+  // Assigning this to variable so I can use it in the success function
+  // I'm not at all sure if this is OK, but it works.
+  var current = $(this);
+
+
 
   //var id = {{ show.id }};
   var season = $(this).attr('season');
@@ -15,8 +26,9 @@ $('.season_select').on('click', function() {
     dataType: "json",
     success: function(data) {
       // List episodes with class and episode id attributes
+      $(current).append("<ul id='episodes'></ul>");
       for (i in data){
-        $('#ep_list').append("<li class=watched_" + data[i][2] + " ep=" +
+        $('#episodes').append("<li class=watched_" + data[i][2] + " ep=" +
           data[i][1] + ">" + data[i][0] + "</li>");
       }
       watchedStatus();
@@ -25,7 +37,9 @@ $('.season_select').on('click', function() {
 });
 
 function watchedStatus() {
-  $('.watched_false').on('click', function() {
+  $('.watched_false').on('click', function(event) {
+    // Stop click event from bubbling up to .season_select click
+    event.stopPropagation();
     // Assigning this to variable so I can use it in the success function
     // I'm not at all sure if this is OK, but it works.
     current = $(this)

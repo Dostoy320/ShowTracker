@@ -7,6 +7,11 @@
 <div id='container'>
 <header>
 	<h1>ShowTracker</h1>
+	<div id='user'>
+	{% if session.username %}
+		<h3>{{ session.username }}</h3>
+	{% endif %}
+	</div>
 	<div id='meta-nav'>
 	<a href="{{ url_for('show_shows') }}">Show Shows</a>
 	{% if not session.username %}
@@ -15,11 +20,6 @@
 	{% else %}
 	  <a href="{{ url_for('logout') }}">log out</a>
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
-	{% endif %}
-	</div>
-	<div id='user'>
-	{% if session.username %}
-		<h3>{{ session.username }}</h3>
 	{% endif %}
 	</div>
 </header>

@@ -1,16 +1,15 @@
 @import "compass/reset";
 @import "960/grid";
 @import "compass/utilities";
-@import "compass/typography/lists/inline-block-list";
 
 $border_all: 1px solid blue;
 
+/* Devices */
+$phone-landscape: "only screen and (min-width : 480px)";
+
 /* Site color pallete */
-$brown: #B2914C;
-$white: #FFFCF5;
-$yellow: #FFCF6C;
-$gray: #7F92B2;
-$blue: #7DAEFF;
+$season_list: #C7DBFF;
+
 
 h1 {
 	font-size: 30px;
@@ -27,53 +26,80 @@ h3 {
 $ninesixty-columns: 12;
 
 #container {
-  @include grid-container;
+  @include grid(4);
   @include clearfix;
   margin-top: 20px;
   border: $border_all;
 
   header, footer {
-    @include grid(12);
+    @include grid(4);
+    @include alpha;
     border: $border_all;
 
     #meta-nav {
     @include grid(4);
+    @include alpha;
     border: $border_all;
   	}
   	#user {
   		@include grid(2);
   		border: $border_all;
-  		float: right;
+      float: right;
   		text-align: right;
   	}
-  }
+  } /* End header, footer */
 
   #main-content {
-    @include grid(8);
-    @include grid-push(2);
+    @include clearfix;
+    width: 100%;
     border: $border_all;
+    float: left;
     margin-top: 30px;
+    //height: 300px;
+
+    #show_focus {
+      @include clearfix;
+      text-align: center;
+    }
 
     #season_list {
-    	@include inline-block-list;
       margin-bottom: 10px;
-    	li {
-    			cursor: pointer;
+    	.season_select {
+        margin: 0 0 5px 0;
+        padding: 5px 0 5px 0;
+        width: 100%;
+        background-color: $season_list;
+        font-size: 25px;
+        cursor: pointer;
+        text-align: center;
+
+        .watched_false {
+          text-decoration: none;
+        }
+        .watched_true {
+          text-decoration: line-through;
+        }
     	}
     }
-    #ep_list {
-    	li {
-    		cursor: pointer;
-        padding: 4px;
-    	}
-      .watched_true {
-        text-decoration: line-through;
-      }
-    }
+
     form[name='login'] {
       label {
         @include grid(1.5);
       }
+    }
+  }
+} /* End container */
+
+@media #{$phone-landscape} {
+  #container {
+    @include grid(6);
+    @include clearfix;
+
+    header, footer {
+      @include grid(6);
+    }
+    #main-content {
+      width: 100%;
     }
   }
 }
