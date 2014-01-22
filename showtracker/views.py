@@ -194,7 +194,10 @@ def login():
         if form.validate() is False:
             return render_template('login.html', form=form)
         else:
-            session['username'] = form.username.data
+            # Get the case-correct username for session use
+            username = User.query.filter(User.username.ilike
+                                        (form.username.data)).first().username
+            session['username'] = username
             flash('You are logged in.')
             return redirect(url_for('show_shows'))
 

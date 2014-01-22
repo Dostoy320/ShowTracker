@@ -13,7 +13,7 @@ class User(db.Model):
     role = db.Column(db.SmallInteger, default=ROLE_USER)
 
     def __init__(self, username, email, password, role):
-        self.username = username.title()
+        self.username = username
         self.email = email.lower()
         self.set_password(password)
 
