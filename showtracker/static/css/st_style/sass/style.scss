@@ -57,6 +57,11 @@ $ninesixty-columns: 12;
     margin-top: 30px;
     //height: 300px;
 
+    #welcome {
+      width: 100%;
+      border: $border_all;
+    }
+
     #show_focus {
       @include clearfix;
       text-align: center;
@@ -100,6 +105,10 @@ $ninesixty-columns: 12;
     }
     #main-content {
       width: 100%;
+
+      #welcome {
+        @include grid(6);
+      }
     }
   }
 }

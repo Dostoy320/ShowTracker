@@ -13,11 +13,8 @@
 	{% endif %}
 	</div>
 	<div id='meta-nav'>
-	<a href="{{ url_for('show_shows') }}">Show Shows</a>
-	{% if not session.username %}
-	  <a href="{{ url_for('login') }}">log in</a>
-	  <a href="{{ url_for('signup') }}">Sign Up</a>
-	{% else %}
+	{% if session.username %}
+	  <a href="{{ url_for('show_shows') }}">Show Shows</a>
 	  <a href="{{ url_for('logout') }}">log out</a>
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
 	{% endif %}
