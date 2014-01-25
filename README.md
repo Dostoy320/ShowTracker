@@ -42,6 +42,7 @@ the data for a given show.
 ####ToDo:
 + <del>Fix signup validation to halt duplicate usernames</del>
 + <del>Tie users to specific shows - *This is huge. Figure it out!*</del>
++ Prevent duplicate shows per user
 + Stop neglecting tests
 + Develop an environment where users can manipulate/delete shows/seasons/episodes
 + <del>Check for existing show in database before adding duplicate</del>
