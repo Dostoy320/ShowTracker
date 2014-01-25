@@ -6,7 +6,9 @@
 </head>
 <div id='container'>
 <header>
-	<h1>ShowTracker</h1>
+	<div id='persistent_logo'>
+	<a href="{{ url_for('show_shows') }}"><h1>ShowTracker</h1></a>
+	</div>
 	<div id='user'>
 	{% if session.username %}
 		<h3>{{ session.username }}</h3>

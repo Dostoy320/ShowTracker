@@ -13,155 +13,154 @@ $retina-portrait: "only screen and (min-width : 640px)";
 $retina-and-beyond: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
-$season_list: #C7DBFF;
-$show_summary: #6CA1FF;
-
+$base_color: #7baaff;
+$season_list: #c7dbff;
+$show_summary: #6ca1ff;
 
 h1 {
-	font-size: 30px;
-	margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
+
 h2 {
-	font-size: 24px;
-	margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
+
 h3 {
-	font-size: 20px;
+    font-size: 20px;
 }
+
 h4 {
-  font-size: 18px;
-  margin-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 $ninesixty-columns: 12;
 
 #container {
-  @include grid(4);
-  @include clearfix;
-  margin-top: 20px;
-  border: $border_all;
-
-  header {
     @include grid(4);
-    @include alpha;
-    border: $border_all;
-
-    #meta-nav {
-    @include grid(4);
-    @include alpha;
-    border: $border_all;
-  	}
-  	#user {
-  		@include grid(2);
-  		border: $border_all;
-      float: right;
-  		text-align: right;
-  	}
-  } /* End header */
-
-  #main-content {
     @include clearfix;
-    width: 100%;
+    margin-top: 20px;
     border: $border_all;
-    float: left;
-    margin-top: 30px;
-    //height: 300px;
-
-    #welcome {
-      width: 100%;
-      border: $border_all;
+    header {
+        @include grid(4);
+        @include alpha;
+        border: $border_all;
+        #persistent_logo {
+            a {
+                text-decoration: none;   
+                color: $base_color;         }
+        }
+        #meta-nav {
+            @include grid(4);
+            @include alpha;
+            border: $border_all;
+        }
+        #user {
+            @include grid(2);
+            border: $border_all;
+            float: right;
+            text-align: right;
+        }
     }
-
-    #show_detail {
-      margin-top: 15px;
-      margin-bottom: 10px;
-      padding: 5px;
-      line-height: 25px;
-      @include border-radius(5px);
-    }
-
-    #show_focus {
-      @include clearfix;
-      text-align: center;
-
-      h2 {
-        font-size: 1.9em;
-      }
-    }
-
-    #season_list {
-      margin-bottom: 10px;
-    	.season_select {
-        margin: 0 0 5px 0;
-        padding: 5px 0 5px 0;
+    /* End header */
+    #main-content {
+        @include clearfix;
         width: 100%;
-        background-color: $season_list;
-        font-size: 25px;
-        cursor: pointer;
-        text-align: center;
-
-        #episodes li {
-          margin-bottom: 3px;
-          background-color: #E0EBFF;
+        border: $border_all;
+        float: left;
+        margin-top: 30px;
+        //height: 300px;
+        #welcome {
+            width: 100%;
+            border: $border_all;
         }
-
-        .watched_false {
-          text-decoration: none;
+        #show_detail {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            padding: 5px;
+            line-height: 25px;
+            @include border-radius(5px);
         }
-        .watched_true {
-          color: rgba(0, 0, 0, 0.3);
+        #show_submit {
+            margin-bottom: 10px;
         }
-    	}
+        #show_focus {
+            @include clearfix;
+            text-align: center;
+            h2 {
+                font-size: 1.9em;
+            }
+        }
+        #season_list {
+            margin-bottom: 10px;
+            .season_select {
+                margin: 0 0 5px 0;
+                padding: 5px 0 5px 0;
+                width: 100%;
+                background-color: $season_list;
+                font-size: 25px;
+                cursor: pointer;
+                text-align: center;
+                #episodes li {
+                    margin-bottom: 3px;
+                    background-color: #E0EBFF;
+                }
+                .watched_false {
+                    text-decoration: none;
+                }
+                .watched_true {
+                    color: rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+        form[name='login'] {
+            label {
+                @include grid(1.5);
+            }
+        }
     }
+}
 
-    form[name='login'] {
-      label {
-        @include grid(1.5);
-      }
-    }
-  }
-} /* End container */
+/* End container */
 
 @media #{$phone-landscape} {
-  #container {
-    @include grid(6);
-    @include clearfix;
-
-    header {
-      @include grid(6);
-    }
-    #main-content {
-      @include grid(6);
-
-      #welcome {
+    #container {
         @include grid(6);
-      }
+        @include clearfix;
+        header {
+            @include grid(6);
+        }
+        #main-content {
+            @include grid(6);
+            #welcome {
+                @include grid(6);
+            }
+        }
     }
-  }
 }
 
 @media #{$retina-portrait} {
-  #container {
-    @include grid(8);
-
-    header {
-      @include grid(8);
+    #container {
+        @include grid(8);
+        header {
+            @include grid(8);
+        }
+        #main-content {
+            @include grid(8);
+        }
     }
-    #main-content {
-      @include grid(8);
-    }
-  }
 }
 
 @media #{$retina-and-beyond} {
-  #container {
-    @include grid(12);
-
-    header {
-      @include grid(12);
+    #container {
+        @include grid(12);
+        header {
+            @include grid(12);
+        }
+        #main-content {
+            @include grid-push(2);
+        }
     }
-    #main-content {
-      @include grid-push(2);
-    }
-  }
 }
