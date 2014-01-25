@@ -36,6 +36,10 @@
     </form>
   {% endif %}
 
+  {% if message %}
+    <div class="flash">{{ message }}</div>
+  {% endif %}
+
   <script src="{{ url_for('static', filename='scripts/add_show.js') }}"></script>
 
   {% block details %}{% endblock %}

@@ -96,7 +96,10 @@ def add_show():
     form = AddShow()
     if not session.get('username'):
         abort(401)
-
+    # Check for duplicate show within a specific user
+    if form.validate_unique() is False:
+            message = "You already follow this show."
+            return render_template('add_shows.html', message=message, form=form)
     # Check if requested show already exists in database:
     existing_show = Show.query.filter_by(tmdb_id=form.show_id.data).first()
     if existing_show:
