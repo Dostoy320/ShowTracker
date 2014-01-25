@@ -83,6 +83,11 @@ $ninesixty-columns: 12;
             line-height: 25px;
             @include border-radius(5px);
         }
+        #search_results {
+            p {
+                margin: 10px 0 10px 0;
+            }
+        }
         #show_submit {
             margin-bottom: 10px;
         }

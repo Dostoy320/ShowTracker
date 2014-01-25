@@ -16,12 +16,15 @@
 
   <!-- Return list of shows from query -->
   {% if choices %}
-  <p>Results for <strong>{{ choices[0]['name'] }}</strong>:
+  <div id='search_results'>
+  <p>Results for <strong>{{ choices[0]['name'] }}</strong>:</p>
     <ul>
     {% for choice in choices %}
       <li><a href="{{ url_for('retrieve_show') }}?value={{ choice['id'] }}">
       {{ choice['name'] }} {{ choice['first_air_date'] }}</li>
     {% endfor %}
+    </ul>
+    </div>
   {% endif %}
 
   <!-- Return info for specific show -->
