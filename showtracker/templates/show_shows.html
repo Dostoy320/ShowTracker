@@ -5,7 +5,7 @@
 
     <!-- If logged in, link to episode add -->
     {% if session.username %}
-    <li><a href="{{ url_for('show_detail') }}?value={{ show.name }}">
+    <li><a href="{{ url_for('show_detail') }}?value={{ show.id }}">
     <h3>{{ show.name }}</h3></a></li>
 
     <!-- If not logged, limit to list of shows -->

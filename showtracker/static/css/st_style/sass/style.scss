@@ -1,14 +1,20 @@
 @import "compass/reset";
 @import "960/grid";
 @import "compass/utilities";
+@import "compass/css3";
 
-$border_all: 1px solid blue;
+$border_all: 0px solid blue;
 
 /* Devices */
 $phone-landscape: "only screen and (min-width : 480px)";
 
+$retina-portrait: "only screen and (min-width : 640px)";
+
+$retina-and-beyond: "only screen and (min-width : 960px)";
+
 /* Site color pallete */
 $season_list: #C7DBFF;
+$show_summary: #6CA1FF;
 
 
 h1 {
@@ -22,6 +28,10 @@ h2 {
 h3 {
 	font-size: 20px;
 }
+h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
 
 $ninesixty-columns: 12;
 
@@ -31,7 +41,7 @@ $ninesixty-columns: 12;
   margin-top: 20px;
   border: $border_all;
 
-  header, footer {
+  header {
     @include grid(4);
     @include alpha;
     border: $border_all;
@@ -47,7 +57,7 @@ $ninesixty-columns: 12;
       float: right;
   		text-align: right;
   	}
-  } /* End header, footer */
+  } /* End header */
 
   #main-content {
     @include clearfix;
@@ -62,9 +72,21 @@ $ninesixty-columns: 12;
       border: $border_all;
     }
 
+    #show_detail {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      padding: 5px;
+      line-height: 25px;
+      @include border-radius(5px);
+    }
+
     #show_focus {
       @include clearfix;
       text-align: center;
+
+      h2 {
+        font-size: 1.9em;
+      }
     }
 
     #season_list {
@@ -78,11 +100,16 @@ $ninesixty-columns: 12;
         cursor: pointer;
         text-align: center;
 
+        #episodes li {
+          margin-bottom: 3px;
+          background-color: #E0EBFF;
+        }
+
         .watched_false {
           text-decoration: none;
         }
         .watched_true {
-          text-decoration: line-through;
+          color: rgba(0, 0, 0, 0.3);
         }
     	}
     }
@@ -100,15 +127,41 @@ $ninesixty-columns: 12;
     @include grid(6);
     @include clearfix;
 
-    header, footer {
+    header {
       @include grid(6);
     }
     #main-content {
-      width: 100%;
+      @include grid(6);
 
       #welcome {
         @include grid(6);
       }
+    }
+  }
+}
+
+@media #{$retina-portrait} {
+  #container {
+    @include grid(8);
+
+    header {
+      @include grid(8);
+    }
+    #main-content {
+      @include grid(8);
+    }
+  }
+}
+
+@media #{$retina-and-beyond} {
+  #container {
+    @include grid(12);
+
+    header {
+      @include grid(12);
+    }
+    #main-content {
+      @include grid-push(2);
     }
   }
 }

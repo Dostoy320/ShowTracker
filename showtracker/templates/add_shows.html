@@ -26,12 +26,18 @@
 
   <!-- Return info for specific show -->
   {% if show %}
-    <strong>{{ show['name'] }}</strong><br>
+    <div id='show_detail'>
+    <h4>{{ show['name'] }}</h4>
     <p>{{ show['overview'] }}</p>
+    </div>
     <form action="{{ url_for('add_show') }}" method=post id='show_submit' class='add-entry'>
       {{ form.show_id }}
       {{ form.submit }}
     </form>
+  {% endif %}
+
+  {% if message %}
+    <div class="flash">{{ message }}</div>
   {% endif %}
 
   <script src="{{ url_for('static', filename='scripts/add_show.js') }}"></script>

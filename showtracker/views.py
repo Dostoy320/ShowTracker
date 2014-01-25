@@ -2,6 +2,7 @@ from showtracker import app, db
 from models import ROLE_USER, User, Show, Episode, UserShows, UserEpisodes
 from forms import SignupForm, LoginForm, AddShow
 from api_parser import MovieDatabase
+from urllib import urlencode
 from flask import render_template, session, flash, redirect, url_for, \
     request, abort, jsonify
 
@@ -21,8 +22,9 @@ def show_shows():
 
 @app.route('/show_detail')
 def show_detail():
-    name = request.args.get('value')
-    show = Show.query.filter_by(name=name).first()
+    show_id = request.args.get('value')
+    print show_id
+    show = Show.query.filter_by(id=show_id).first()
     seasons = show.total_seasons
     episodes = Episode.query.filter_by(show_id=show.id).all()
     return render_template('show_detail.html', show=show, seasons=seasons,
@@ -96,7 +98,10 @@ def add_show():
     form = AddShow()
     if not session.get('username'):
         abort(401)
-
+    # Check for duplicate show within a specific user
+    if form.validate_unique() is False:
+            message = "You already follow this show."
+            return render_template('add_shows.html', message=message, form=form)
     # Check if requested show already exists in database:
     existing_show = Show.query.filter_by(tmdb_id=form.show_id.data).first()
     if existing_show:
