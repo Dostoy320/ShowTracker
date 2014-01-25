@@ -67,23 +67,22 @@ class AddShow(Form):  # Corresponds to add_shows.html
         Form.__init__(self, *args, **kwargs)
 
 # TODO: Work out some better form validation in this section, for christ's sake.
-
     def validate(self):
         if not Form.validate(self):
             return False
         else:
             return True
-# Determine if show already exists for the user
 
+# Determine if show already exists for the user
     def validate_unique(self):
         user = User.query.filter_by(username=session.get('username')).first()
-        show = UserShows.query.filter_by(user=user.id)\
-            .filter_by(show=Show.query.filter_by(tmdb_id=self.show_id.data)
-            .first().id).first()
+        show = Show.query.filter_by(tmdb_id=self.show_id.data).first()
         if show:
-            # Why can't I append to errors here?
+            show = UserShows.query.filter_by(user=user.id)\
+                .filter_by(show=show.id).first()
+        if show:
+            # Why can't I append() to errors here?
             return False
-
         else:
             return True
 
