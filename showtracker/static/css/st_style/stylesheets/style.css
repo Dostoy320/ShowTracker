@@ -65,30 +65,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* Devices */
 /* Site color pallete */
-/* line 20, ../sass/style.scss */
+/* line 22, ../sass/style.scss */
 h1 {
   font-size: 30px;
   margin-bottom: 20px;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 27, ../sass/style.scss */
 h2 {
   font-size: 24px;
   margin-bottom: 15px;
 }
 
-/* line 30, ../sass/style.scss */
+/* line 32, ../sass/style.scss */
 h3 {
   font-size: 20px;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 36, ../sass/style.scss */
 h4 {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-/* line 41, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 #container {
   display: inline;
   float: left;
@@ -101,7 +101,7 @@ h4 {
   border: 0px solid blue;
   /* End header */
 }
-/* line 46, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 #container header {
   display: inline;
   float: left;
@@ -111,12 +111,12 @@ h4 {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 51, ../sass/style.scss */
+/* line 53, ../sass/style.scss */
 #container header #persistent_logo a {
   text-decoration: none;
   color: #7baaff;
 }
-/* line 55, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 #container header #meta-nav {
   display: inline;
   float: left;
@@ -126,7 +126,7 @@ h4 {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 60, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 #container header #user {
   display: inline;
   float: left;
@@ -137,7 +137,7 @@ h4 {
   float: right;
   text-align: right;
 }
-/* line 68, ../sass/style.scss */
+/* line 70, ../sass/style.scss */
 #container #main-content {
   overflow: hidden;
   *zoom: 1;
@@ -146,12 +146,32 @@ h4 {
   float: left;
   margin-top: 30px;
 }
-/* line 75, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 #container #main-content #welcome {
   width: 100%;
+  padding: 10px;
+  background-color: #c7dbff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
   border: 0px solid blue;
 }
-/* line 79, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
+#container #main-content #shows li {
+  margin-bottom: 3px;
+}
+/* line 87, ../sass/style.scss */
+#container #main-content #shows li a {
+  text-decoration: none;
+  color: #001e54;
+}
+/* line 91, ../sass/style.scss */
+#container #main-content #shows li a:hover {
+  color: #003aa2;
+}
+/* line 96, ../sass/style.scss */
 #container #main-content #show_detail {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -163,29 +183,33 @@ h4 {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 87, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 #container #main-content #search_results p {
   margin: 10px 0 10px 0;
 }
-/* line 91, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
+#container #main-content #search_results ul li {
+  margin-bottom: 5px;
+}
+/* line 113, ../sass/style.scss */
 #container #main-content #show_submit {
   margin-bottom: 10px;
 }
-/* line 94, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 #container #main-content #show_focus {
   overflow: hidden;
   *zoom: 1;
   text-align: center;
 }
-/* line 97, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 #container #main-content #show_focus h2 {
   font-size: 1.9em;
 }
-/* line 101, ../sass/style.scss */
+/* line 123, ../sass/style.scss */
 #container #main-content #season_list {
   margin-bottom: 10px;
 }
-/* line 103, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 #container #main-content #season_list .season_select {
   margin: 0 0 5px 0;
   padding: 5px 0 5px 0;
@@ -195,20 +219,20 @@ h4 {
   cursor: pointer;
   text-align: center;
 }
-/* line 111, ../sass/style.scss */
+/* line 133, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li {
   margin-bottom: 3px;
   background-color: #E0EBFF;
 }
-/* line 115, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_false {
   text-decoration: none;
 }
-/* line 118, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_true {
   color: rgba(0, 0, 0, 0.3);
 }
-/* line 124, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #container #main-content form[name='login'] label {
   display: inline;
   float: left;
@@ -219,7 +243,7 @@ h4 {
 
 /* End container */
 @media only screen and (min-width: 480px) {
-  /* line 134, ../sass/style.scss */
+  /* line 156, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -229,7 +253,7 @@ h4 {
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 137, ../sass/style.scss */
+  /* line 159, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -237,7 +261,7 @@ h4 {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 140, ../sass/style.scss */
+  /* line 162, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -245,7 +269,7 @@ h4 {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 142, ../sass/style.scss */
+  /* line 164, ../sass/style.scss */
   #container #main-content #welcome {
     display: inline;
     float: left;
@@ -255,7 +279,7 @@ h4 {
   }
 }
 @media only screen and (min-width: 640px) {
-  /* line 150, ../sass/style.scss */
+  /* line 172, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -263,7 +287,7 @@ h4 {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 152, ../sass/style.scss */
+  /* line 174, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -271,7 +295,7 @@ h4 {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 155, ../sass/style.scss */
+  /* line 177, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -281,7 +305,7 @@ h4 {
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 162, ../sass/style.scss */
+  /* line 184, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -289,7 +313,7 @@ h4 {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 164, ../sass/style.scss */
+  /* line 186, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -297,7 +321,7 @@ h4 {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 167, ../sass/style.scss */
+  /* line 189, ../sass/style.scss */
   #container #main-content {
     position: relative;
     left: 160px;

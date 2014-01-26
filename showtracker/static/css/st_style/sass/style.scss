@@ -14,6 +14,8 @@ $retina-and-beyond: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
 $base_color: #7baaff;
+$dark_text: #001e54;
+$light_text: #003aa2;
 $season_list: #c7dbff;
 $show_summary: #6ca1ff;
 
@@ -74,7 +76,22 @@ $ninesixty-columns: 12;
         //height: 300px;
         #welcome {
             width: 100%;
+            padding: 10px;
+            background-color: $season_list;
+            @include border-radius(5px);
             border: $border_all;
+        }
+        #shows {
+            li {
+                margin-bottom: 3px;
+                a {
+                    text-decoration: none;
+                    color: $dark_text;
+                }
+                a:hover {
+                    color: $light_text;
+                }
+            }
         }
         #show_detail {
             margin-top: 15px;
@@ -86,6 +103,11 @@ $ninesixty-columns: 12;
         #search_results {
             p {
                 margin: 10px 0 10px 0;
+            } 
+            ul {
+                li {
+                    margin-bottom: 5px;
+                }
             }
         }
         #show_submit {
