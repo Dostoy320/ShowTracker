@@ -6,7 +6,7 @@ For a while I just maintained a txt file, but I figured there had to be a better
 way.
 
 The app uses the [The Movie Database](http://www.themoviedb.org/) API to retrieve
-the data for a given show.
+the data for a given show!
 
 ###Development-level stuff:
 ####Current stack:
