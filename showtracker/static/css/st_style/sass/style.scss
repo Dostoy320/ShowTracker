@@ -133,7 +133,16 @@ $ninesixty-columns: 12;
                 #episodes li {
                     margin-bottom: 3px;
                     background-color: #E0EBFF;
+                    div[class*='watched_'] {
+                        @include inline-block;
+                        width: 80%;
+                    }
+                    .update_ep_status {
+                        @include inline-block;
+                        width: 15%;
+                    }
                 }
+                
                 .watched_false {
                     text-decoration: none;
                 }

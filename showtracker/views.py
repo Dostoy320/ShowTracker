@@ -49,6 +49,14 @@ def episode_detail():
     return jsonify(episodes_d)
 
 
+@app.route('/episode_overview')
+def episode_overview():
+    ep_number = request.args.get('ep_number')
+    episode = Episode.query.filter_by(id=1).first()
+    print episode.ep_overview
+    return episode.ep_overview
+
+
 @app.route('/episode_status')
 def episode_status():
     user = User.query.filter_by(username=session.get('username')).first()
@@ -140,6 +148,7 @@ def add_show():
             for episode in current.get('episodes'):
                 new_episode = Episode(title=episode['name'],
                                       ep_number=episode['episode_number'],
+                                      ep_overview=episode['overview'],
                                       season=season['season_number'],
                                       show_id=show.id)
                 db.session.add(new_episode)

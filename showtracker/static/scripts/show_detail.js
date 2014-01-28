@@ -14,7 +14,7 @@ $('.season_select').on('click', function() {
   // I'm not at all sure if this is OK, but it works.
   var current = $(this);
 
-
+  
 
   //var id = {{ show.id }};
   var season = $(this).attr('season');
@@ -28,32 +28,54 @@ $('.season_select').on('click', function() {
       // List episodes with class and episode id attributes
       $(current).append("<ul id='episodes'></ul>");
       for (i in data){
-        $('#episodes').append("<li class=watched_" + data[i][2] + " ep=" +
-          data[i][1] + ">" + data[i][0] + "</li>");
+        $('#episodes').append("<li><div class=watched_" + data[i][2] + " ep=" +
+          data[i][1] + ">" + data[i][0] + "</div><div class=update_ep_status>X</div></li>");
       }
       watchedStatus();
+      episodeOverview();
     }
   });
 });
 
+function episodeOverview() {
+  $("div[class^='watched_']").on('click', function(event) {
+    event.stopPropagation();
+    var current = $(this);
+    dataString = "ep_number=" + current.attr('ep');
+
+    $.ajax({
+      url: $SCRIPT_ROOT + "/episode_overview",
+      data: dataString,
+      // You've got the show overview arriving here, so something with it.
+      success: function(data) {
+        console.log(data);
+      }
+    });
+  });
+}
+
 function watchedStatus() {
-  $('.watched_false').on('click', function(event) {
+  $('.update_ep_status').on('click', function(event) {
     // Stop click event from bubbling up to .season_select click
     event.stopPropagation();
     // Assigning this to variable so I can use it in the success function
     // I'm not at all sure if this is OK, but it works.
-    current = $(this)
-    episode_id = $(this).attr('ep');
-    status = 'watched';
-    dataString = "ep_id=" + episode_id + "&status=" + status;
+    var current = $(this).prev();
+    if (current.attr('class') == 'watched_true') {
+      return true;
+    } else {
+      episode_id = current.attr('ep');
+      status = 'watched';
+      dataString = "ep_id=" + episode_id + "&status=" + status;
 
-    $.ajax({
-      url: $SCRIPT_ROOT + "/episode_status",
-      data: dataString,
-      dataType: "json",
-      success: function() {
-        current.attr('class', 'watched_true');
-      }
-    });
+      $.ajax({
+        url: $SCRIPT_ROOT + "/episode_status",
+        data: dataString,
+        dataType: "json",
+        success: function() {
+          current.attr('class', 'watched_true');
+        }
+      });
+     }
   });
 }
