@@ -44,6 +44,7 @@ function episodeOverview() {
     if (current.children()[0]){
       current.children()[0].remove();
     } else {
+      $('#overview').remove();
       dataString = "ep_number=" + current.attr('ep');
 
       $.ajax({

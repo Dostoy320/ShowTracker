@@ -136,11 +136,18 @@ $ninesixty-columns: 12;
                     div[class*='watched_'] {
                         @include inline-block;
                         width: 80%;
+                        #overview {
+                            margin: 5px 0 10px 0;
+                            font-size: 20px;
+                            color: $dark_text;
+                            text-align: left;
+                            line-height: 25px;
+                        }
                     }
                     .update_ep_status {
                         @include inline-block;
                         width: 15%;
-                    }
+                    }                    
                 }
                 
                 .watched_false {
