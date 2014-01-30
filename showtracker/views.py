@@ -53,7 +53,8 @@ def episode_detail():
 def episode_overview():
     ep_number = request.args.get('ep_number')
     episode = Episode.query.filter_by(id=ep_number).first()
-    print episode.ep_overview
+    if episode.ep_overview == "":
+        episode.ep_overview = "Sorry, no overview available."
     return episode.ep_overview
 
 

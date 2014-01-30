@@ -158,20 +158,24 @@ h4 {
   border-radius: 5px;
   border: 0px solid blue;
 }
-/* line 85, ../sass/style.scss */
+/* line 84, ../sass/style.scss */
+#container #main-content #shows {
+  margin-top: 10px;
+}
+/* line 86, ../sass/style.scss */
 #container #main-content #shows li {
   margin-bottom: 3px;
 }
-/* line 87, ../sass/style.scss */
+/* line 88, ../sass/style.scss */
 #container #main-content #shows li a {
   text-decoration: none;
   color: #001e54;
 }
-/* line 91, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 #container #main-content #shows li a:hover {
   color: #003aa2;
 }
-/* line 96, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 #container #main-content #show_detail {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -183,33 +187,33 @@ h4 {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #container #main-content #search_results p {
   margin: 10px 0 10px 0;
 }
-/* line 108, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 #container #main-content #search_results ul li {
   margin-bottom: 5px;
 }
-/* line 113, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 #container #main-content #show_submit {
   margin-bottom: 10px;
 }
-/* line 116, ../sass/style.scss */
+/* line 117, ../sass/style.scss */
 #container #main-content #show_focus {
   overflow: hidden;
   *zoom: 1;
   text-align: center;
 }
-/* line 119, ../sass/style.scss */
+/* line 120, ../sass/style.scss */
 #container #main-content #show_focus h2 {
   font-size: 1.9em;
 }
-/* line 123, ../sass/style.scss */
+/* line 124, ../sass/style.scss */
 #container #main-content #season_list {
   margin-bottom: 10px;
 }
-/* line 125, ../sass/style.scss */
+/* line 126, ../sass/style.scss */
 #container #main-content #season_list .season_select {
   margin: 0 0 5px 0;
   padding: 5px 0 5px 0;
@@ -219,12 +223,12 @@ h4 {
   cursor: pointer;
   text-align: center;
 }
-/* line 133, ../sass/style.scss */
+/* line 134, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li {
   margin-bottom: 3px;
   background-color: #E0EBFF;
 }
-/* line 136, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] {
   display: -moz-inline-stack;
   display: inline-block;
@@ -234,7 +238,7 @@ h4 {
   *display: inline;
   width: 80%;
 }
-/* line 139, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] #overview {
   margin: 5px 0 10px 0;
   font-size: 20px;
@@ -242,7 +246,7 @@ h4 {
   text-align: left;
   line-height: 25px;
 }
-/* line 147, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li .update_ep_status {
   display: -moz-inline-stack;
   display: inline-block;
@@ -252,15 +256,15 @@ h4 {
   *display: inline;
   width: 15%;
 }
-/* line 153, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_false {
   text-decoration: none;
 }
-/* line 156, ../sass/style.scss */
+/* line 157, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_true {
   color: rgba(0, 0, 0, 0.3);
 }
-/* line 162, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 #container #main-content form[name='login'] label {
   display: inline;
   float: left;
@@ -271,7 +275,7 @@ h4 {
 
 /* End container */
 @media only screen and (min-width: 480px) {
-  /* line 172, ../sass/style.scss */
+  /* line 173, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -281,7 +285,7 @@ h4 {
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 175, ../sass/style.scss */
+  /* line 176, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -289,7 +293,7 @@ h4 {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 178, ../sass/style.scss */
+  /* line 179, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -297,7 +301,7 @@ h4 {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 180, ../sass/style.scss */
+  /* line 181, ../sass/style.scss */
   #container #main-content #welcome {
     display: inline;
     float: left;
@@ -307,7 +311,7 @@ h4 {
   }
 }
 @media only screen and (min-width: 640px) {
-  /* line 188, ../sass/style.scss */
+  /* line 189, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -315,7 +319,7 @@ h4 {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 190, ../sass/style.scss */
+  /* line 191, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -323,7 +327,7 @@ h4 {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 193, ../sass/style.scss */
+  /* line 194, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -333,7 +337,7 @@ h4 {
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 200, ../sass/style.scss */
+  /* line 201, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -341,7 +345,7 @@ h4 {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 202, ../sass/style.scss */
+  /* line 203, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -349,7 +353,7 @@ h4 {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 205, ../sass/style.scss */
+  /* line 206, ../sass/style.scss */
   #container #main-content {
     position: relative;
     left: 160px;
