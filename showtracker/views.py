@@ -3,6 +3,7 @@ from models import ROLE_USER, User, Show, Episode, UserShows, UserEpisodes
 from forms import SignupForm, LoginForm, AddShow
 from api_parser import MovieDatabase
 from urllib import urlencode
+from datetime import datetime
 from flask import render_template, session, flash, redirect, url_for, \
     request, abort, jsonify
 
@@ -68,6 +69,7 @@ def episode_status():
         .filter_by(user=user.id).first()
     if status == "watched":
         query.watched = True
+        query.date_watched = datetime.now()
         result = {"watched": "true"}
     else:
         query.watched = False
