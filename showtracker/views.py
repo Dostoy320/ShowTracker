@@ -52,7 +52,7 @@ def episode_detail():
 @app.route('/episode_overview')
 def episode_overview():
     ep_number = request.args.get('ep_number')
-    episode = Episode.query.filter_by(id=1).first()
+    episode = Episode.query.filter_by(id=ep_number).first()
     print episode.ep_overview
     return episode.ep_overview
 

@@ -41,16 +41,21 @@ function episodeOverview() {
   $("div[class^='watched_']").on('click', function(event) {
     event.stopPropagation();
     var current = $(this);
-    dataString = "ep_number=" + current.attr('ep');
+    if (current.children()[0]){
+      current.children()[0].remove();
+    } else {
+      dataString = "ep_number=" + current.attr('ep');
 
-    $.ajax({
-      url: $SCRIPT_ROOT + "/episode_overview",
-      data: dataString,
-      // You've got the show overview arriving here, so something with it.
-      success: function(data) {
-        console.log(data);
-      }
-    });
+      $.ajax({
+        url: $SCRIPT_ROOT + "/episode_overview",
+        data: dataString,
+        // You've got the show overview arriving here, so something with it.
+        success: function(data) {
+          current.append("<div id='overview'>" + data + "</div");
+        }
+      });
+    }
+    
   });
 }
 
