@@ -22,19 +22,20 @@ $headings: #E8E8E8;
 $season_list: #999999;
 $show_summary: #BDBDBD;
 
+
 h1 {
-    font-size: 30px;
+    font-size: 45px;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 15px;
     color: $headings;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 25px;
     color: $headings;
 }
 
@@ -71,7 +72,7 @@ body {
         #persistent_logo {
             @include grid(4);
             a {
-                text-decoration: none;   
+                text-decoration: none;
                 color: $base_color;         }
         }
         #meta-nav {
@@ -125,7 +126,7 @@ body {
         #search_results {
             p {
                 margin: 10px 0 10px 0;
-            } 
+            }
             ul {
                 li {
                     margin-bottom: 5px;
@@ -174,9 +175,8 @@ body {
                     .update_ep_status {
                         @include inline-block;
                         width: 15%;
-                    }                    
+                    }
                 }
-                
                 .watched_false {
                     text-decoration: none;
                 }

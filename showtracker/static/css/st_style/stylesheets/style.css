@@ -65,49 +65,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* Devices */
 /* Site color pallete */
-/* line 25, ../sass/style.scss */
+/* line 26, ../sass/style.scss */
 h1 {
-  font-size: 30px;
+  font-size: 45px;
   margin-bottom: 20px;
 }
 
-/* line 30, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 h2 {
-  font-size: 24px;
+  font-size: 35px;
   margin-bottom: 15px;
   color: #e8e8e8;
 }
 
-/* line 36, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
 h3 {
-  font-size: 20px;
+  font-size: 25px;
   color: #e8e8e8;
 }
 
-/* line 41, ../sass/style.scss */
+/* line 42, ../sass/style.scss */
 h4 {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-/* line 46, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 a {
   text-decoration: none;
   color: #e8e8e8;
 }
 
-/* line 51, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 57, ../sass/style.scss */
+/* line 58, ../sass/style.scss */
 body {
   background-color: #242424;
   color: #dbdbdb;
 }
 
-/* line 62, ../sass/style.scss */
+/* line 63, ../sass/style.scss */
 #container {
   display: inline;
   float: left;
@@ -120,7 +120,7 @@ body {
   border: 0px solid blue;
   /* End header */
 }
-/* line 67, ../sass/style.scss */
+/* line 68, ../sass/style.scss */
 #container header {
   display: inline;
   float: left;
@@ -130,7 +130,7 @@ body {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 71, ../sass/style.scss */
+/* line 72, ../sass/style.scss */
 #container header #persistent_logo {
   display: inline;
   float: left;
@@ -138,12 +138,12 @@ body {
   margin-right: 10px;
   width: 300px;
 }
-/* line 73, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 #container header #persistent_logo a {
   text-decoration: none;
   color: #4a36ff;
 }
-/* line 77, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 #container header #meta-nav {
   display: inline;
   float: left;
@@ -153,7 +153,7 @@ body {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 82, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 #container header #user {
   display: inline;
   float: left;
@@ -165,7 +165,7 @@ body {
   float: right;
   text-align: right;
 }
-/* line 91, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 #container #main-content {
   overflow: hidden;
   *zoom: 1;
@@ -174,7 +174,7 @@ body {
   float: left;
   margin-top: 30px;
 }
-/* line 98, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 #container #main-content #welcome {
   width: 100%;
   padding: 10px;
@@ -186,24 +186,24 @@ body {
   border-radius: 5px;
   border: 0px solid blue;
 }
-/* line 105, ../sass/style.scss */
+/* line 106, ../sass/style.scss */
 #container #main-content #shows {
   margin-top: 10px;
 }
-/* line 107, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
 #container #main-content #shows li {
   margin-bottom: 3px;
 }
-/* line 109, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 #container #main-content #shows li a {
   text-decoration: none;
   color: #bfbfbf;
 }
-/* line 113, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 #container #main-content #shows li a:hover {
   color: #404040;
 }
-/* line 118, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 #container #main-content #show_detail {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -215,38 +215,38 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 126, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 #container #main-content #search_results p {
   margin: 10px 0 10px 0;
 }
-/* line 130, ../sass/style.scss */
+/* line 131, ../sass/style.scss */
 #container #main-content #search_results ul li {
   margin-bottom: 5px;
 }
-/* line 135, ../sass/style.scss */
+/* line 136, ../sass/style.scss */
 #container #main-content #show_submit {
   margin-bottom: 10px;
 }
-/* line 138, ../sass/style.scss */
+/* line 139, ../sass/style.scss */
 #container #main-content #show_focus {
   overflow: hidden;
   *zoom: 1;
   text-align: center;
 }
-/* line 141, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 #container #main-content #show_focus h2 {
   font-size: 1.9em;
 }
-/* line 145, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #container #main-content #season_list:nth-child(1) {
   border-radius: 5px;
   background-color: red;
 }
-/* line 149, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 #container #main-content #season_list {
   margin-bottom: 10px;
 }
-/* line 151, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 #container #main-content #season_list .season_select {
   margin: 0 0 5px 0;
   padding: 5px 0 5px 0;
@@ -256,13 +256,13 @@ body {
   cursor: pointer;
   text-align: center;
 }
-/* line 159, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li {
   margin-bottom: 3px;
   background-color: #bdbdbd;
   color: #404040;
 }
-/* line 163, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] {
   display: -moz-inline-stack;
   display: inline-block;
@@ -272,7 +272,7 @@ body {
   *display: inline;
   width: 80%;
 }
-/* line 166, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] #overview {
   margin: 5px 0 10px 0;
   font-size: 20px;
@@ -280,7 +280,7 @@ body {
   text-align: left;
   line-height: 25px;
 }
-/* line 174, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li .update_ep_status {
   display: -moz-inline-stack;
   display: inline-block;
