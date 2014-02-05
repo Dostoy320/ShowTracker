@@ -15,6 +15,7 @@ $retina-and-beyond: "only screen and (min-width : 960px)";
 /* Site color pallete */
 $background-base: #242424;
 $base_color: #4A36FF;
+$base_text: #DBDBDB;
 $dark_text: #404040;
 $light_text: #BFBFBF;
 $headings: #E8E8E8;
@@ -43,13 +44,19 @@ h4 {
 }
 
 a {
+    text-decoration: none;
     color: $headings;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 $ninesixty-columns: 12;
 
 body {
     background-color: $background-base;
+    color: $base_text;
 }
 
 #container {
@@ -74,6 +81,7 @@ body {
         }
         #user {
             @include grid(2);
+            margin-bottom: 10px;
             border: $border_all;
             float: right;
             text-align: right;
@@ -100,10 +108,10 @@ body {
                 margin-bottom: 3px;
                 a {
                     text-decoration: none;
-                    color: $dark_text;
+                    color: $light_text;
                 }
                 a:hover {
-                    color: $light_text;
+                    color: $dark_text;
                 }
             }
         }
@@ -151,6 +159,7 @@ body {
                 #episodes li {
                     margin-bottom: 3px;
                     background-color: $show_summary;
+                    color: $dark_text;
                     div[class*='watched_'] {
                         @include inline-block;
                         width: 80%;
@@ -225,6 +234,9 @@ body {
         @include grid(12);
         header {
             @include grid(12);
+            #persistent_logo {
+                @include grid(8);
+            }
         }
         #main-content {
             @include grid-push(2);
