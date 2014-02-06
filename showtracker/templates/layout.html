@@ -12,12 +12,12 @@
 	<div id='user'>
 	{% if session.username %}
 		<h3>{{ session.username }}</h3>
+		<a href="{{ url_for('logout') }}">log out</a>
 	{% endif %}
 	</div>
 	<div id='meta-nav'>
 	{% if session.username %}
 	  <a href="{{ url_for('show_shows') }}">Show Shows</a>
-	  <a href="{{ url_for('logout') }}">log out</a>
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
 	{% endif %}
 	</div>
