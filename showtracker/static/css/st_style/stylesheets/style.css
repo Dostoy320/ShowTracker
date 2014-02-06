@@ -217,6 +217,7 @@ body {
 #container #main-content #show_detail {
   margin-top: 15px;
   margin-bottom: 10px;
+  padding: 5px;
   line-height: 25px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -267,7 +268,7 @@ body {
 }
 /* line 168, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   background-color: #bdbdbd;
   color: #404040;
 }
@@ -431,10 +432,5 @@ body {
     margin-right: 10px;
     width: 780px;
     margin-left: 0;
-  }
-  /* line 254, ../sass/style.scss */
-  #container #main-content {
-    position: relative;
-    left: 160px;
   }
 }

@@ -4,19 +4,12 @@
   <ul id='shows'>
   {% for show in shows %}
 
-    <!-- If logged in, link to episode add -->
-    {% if session.username %}
     <li><a href="{{ url_for('show_detail') }}?value={{ show.id }}">
     {{ show.name }}</a></li>
 
-    <!-- If not logged, limit to list of shows -->
-    {% else %}
-    <li><h3>{{ show.name }}</h3></li>
-    {% endif %}
-
     <!-- If no shows, say this: -->
     {% else %}
-    <li><em>Unbelievable.  No shows here so far</em>
+    <li><em>No shows here so far</em></li>
   {% endfor %}
   </ul>
 {% endblock %}

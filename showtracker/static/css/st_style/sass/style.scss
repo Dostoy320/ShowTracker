@@ -127,7 +127,7 @@ body {
         #show_detail {
             margin-top: 15px;
             margin-bottom: 10px;
-            //padding: 5px;
+            padding: 5px;
             line-height: 25px;
             @include border-radius(5px);
         }
@@ -166,7 +166,7 @@ body {
                 cursor: pointer;
                 text-align: center;
                 #episodes li {
-                    margin-bottom: 3px;
+                    margin-bottom: 5px;
                     background-color: $show_summary;
                     color: $dark_text;
                     div[class*='watched_'] {
@@ -252,7 +252,7 @@ body {
             }
         }
         #main-content {
-            @include grid-push(2);
+            //@include grid-push(2);
         }
     }
 }

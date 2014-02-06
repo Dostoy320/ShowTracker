@@ -194,9 +194,6 @@ def search_show():
     return render_template('add_shows.html', choices=result)
 
 
-
-
-
 @app.route('/add_eps', methods=['POST'])
 def add_eps():
     new_episode = Episode(title=request.form['ep_title'],
