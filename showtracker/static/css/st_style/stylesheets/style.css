@@ -1,4 +1,4 @@
-/* line 17, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +20,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -105,9 +105,10 @@ a:hover {
 body {
   background-color: #242424;
   color: #dbdbdb;
+  font-size: 20px;
 }
 
-/* line 63, ../sass/style.scss */
+/* line 64, ../sass/style.scss */
 #container {
   display: inline;
   float: left;
@@ -120,7 +121,7 @@ body {
   border: 0px solid blue;
   /* End header */
 }
-/* line 68, ../sass/style.scss */
+/* line 69, ../sass/style.scss */
 #container header {
   display: inline;
   float: left;
@@ -130,20 +131,21 @@ body {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 72, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 #container header #persistent_logo {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
   width: 300px;
+  margin-left: 0;
 }
-/* line 74, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 #container header #persistent_logo a {
   text-decoration: none;
   color: #4a36ff;
 }
-/* line 78, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 #container header #meta-nav {
   display: inline;
   float: left;
@@ -153,7 +155,7 @@ body {
   margin-left: 0;
   border: 0px solid blue;
 }
-/* line 83, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
 #container header #user {
   display: inline;
   float: left;
@@ -165,7 +167,11 @@ body {
   float: right;
   text-align: right;
 }
-/* line 92, ../sass/style.scss */
+/* line 91, ../sass/style.scss */
+#container header #user a {
+  font-size: 15px;
+}
+/* line 97, ../sass/style.scss */
 #container #main-content {
   overflow: hidden;
   *zoom: 1;
@@ -174,7 +180,11 @@ body {
   float: left;
   margin-top: 30px;
 }
-/* line 99, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
+#container #main-content h3 {
+  font-size: 30px;
+}
+/* line 107, ../sass/style.scss */
 #container #main-content #welcome {
   width: 100%;
   padding: 10px;
@@ -186,24 +196,24 @@ body {
   border-radius: 5px;
   border: 0px solid blue;
 }
-/* line 106, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 #container #main-content #shows {
   margin-top: 10px;
 }
-/* line 108, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 #container #main-content #shows li {
   margin-bottom: 3px;
 }
-/* line 110, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 #container #main-content #shows li a {
   text-decoration: none;
   color: #bfbfbf;
 }
-/* line 114, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 #container #main-content #shows li a:hover {
   color: #404040;
 }
-/* line 119, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 #container #main-content #show_detail {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -215,38 +225,38 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 127, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 #container #main-content #search_results p {
   margin: 10px 0 10px 0;
 }
-/* line 131, ../sass/style.scss */
+/* line 139, ../sass/style.scss */
 #container #main-content #search_results ul li {
   margin-bottom: 5px;
 }
-/* line 136, ../sass/style.scss */
+/* line 144, ../sass/style.scss */
 #container #main-content #show_submit {
   margin-bottom: 10px;
 }
-/* line 139, ../sass/style.scss */
+/* line 147, ../sass/style.scss */
 #container #main-content #show_focus {
   overflow: hidden;
   *zoom: 1;
   text-align: center;
 }
-/* line 142, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 #container #main-content #show_focus h2 {
   font-size: 1.9em;
 }
-/* line 146, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 #container #main-content #season_list:nth-child(1) {
   border-radius: 5px;
   background-color: red;
 }
-/* line 150, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
 #container #main-content #season_list {
   margin-bottom: 10px;
 }
-/* line 152, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 #container #main-content #season_list .season_select {
   margin: 0 0 5px 0;
   padding: 5px 0 5px 0;
@@ -256,13 +266,13 @@ body {
   cursor: pointer;
   text-align: center;
 }
-/* line 160, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   background-color: #bdbdbd;
   color: #404040;
 }
-/* line 164, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] {
   display: -moz-inline-stack;
   display: inline-block;
@@ -272,7 +282,7 @@ body {
   *display: inline;
   width: 80%;
 }
-/* line 167, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li div[class*='watched_'] #overview {
   margin: 5px 0 10px 0;
   font-size: 20px;
@@ -280,7 +290,7 @@ body {
   text-align: left;
   line-height: 25px;
 }
-/* line 175, ../sass/style.scss */
+/* line 183, ../sass/style.scss */
 #container #main-content #season_list .season_select #episodes li .update_ep_status {
   display: -moz-inline-stack;
   display: inline-block;
@@ -290,15 +300,15 @@ body {
   *display: inline;
   width: 15%;
 }
-/* line 180, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_false {
   text-decoration: none;
 }
-/* line 183, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 #container #main-content #season_list .season_select .watched_true {
   color: rgba(0, 0, 0, 0.3);
 }
-/* line 187, ../sass/style.scss */
+/* line 195, ../sass/style.scss */
 #container #main-content #season_list .season_select:nth-child(1) {
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -307,7 +317,7 @@ body {
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
 }
-/* line 190, ../sass/style.scss */
+/* line 198, ../sass/style.scss */
 #container #main-content #season_list .season_select:last-child {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -316,7 +326,7 @@ body {
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-/* line 195, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 #container #main-content form[name='login'] label {
   display: inline;
   float: left;
@@ -327,7 +337,7 @@ body {
 
 /* End container */
 @media only screen and (min-width: 480px) {
-  /* line 205, ../sass/style.scss */
+  /* line 213, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -337,7 +347,7 @@ body {
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 208, ../sass/style.scss */
+  /* line 216, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -345,7 +355,16 @@ body {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 211, ../sass/style.scss */
+  /* line 218, ../sass/style.scss */
+  #container header #persistent_logo {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 380px;
+    margin-left: 0;
+  }
+  /* line 223, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -353,7 +372,7 @@ body {
     margin-right: 10px;
     width: 460px;
   }
-  /* line 213, ../sass/style.scss */
+  /* line 225, ../sass/style.scss */
   #container #main-content #welcome {
     display: inline;
     float: left;
@@ -363,7 +382,7 @@ body {
   }
 }
 @media only screen and (min-width: 640px) {
-  /* line 221, ../sass/style.scss */
+  /* line 233, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -371,7 +390,7 @@ body {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 223, ../sass/style.scss */
+  /* line 235, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -379,7 +398,7 @@ body {
     margin-right: 10px;
     width: 620px;
   }
-  /* line 226, ../sass/style.scss */
+  /* line 238, ../sass/style.scss */
   #container #main-content {
     display: inline;
     float: left;
@@ -389,7 +408,7 @@ body {
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 233, ../sass/style.scss */
+  /* line 245, ../sass/style.scss */
   #container {
     display: inline;
     float: left;
@@ -397,7 +416,7 @@ body {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 235, ../sass/style.scss */
+  /* line 247, ../sass/style.scss */
   #container header {
     display: inline;
     float: left;
@@ -405,17 +424,13 @@ body {
     margin-right: 10px;
     width: 940px;
   }
-  /* line 237, ../sass/style.scss */
+  /* line 249, ../sass/style.scss */
   #container header #persistent_logo {
     display: inline;
     float: left;
     margin-left: 10px;
     margin-right: 10px;
-    width: 620px;
-  }
-  /* line 241, ../sass/style.scss */
-  #container #main-content {
-    position: relative;
-    left: 160px;
+    width: 780px;
+    margin-left: 0;
   }
 }

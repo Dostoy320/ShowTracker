@@ -58,6 +58,7 @@ $ninesixty-columns: 12;
 body {
     background-color: $background-base;
     color: $base_text;
+    font-size: 20px;
 }
 
 #container {
@@ -71,6 +72,7 @@ body {
         border: $border_all;
         #persistent_logo {
             @include grid(4);
+            @include alpha;
             a {
                 text-decoration: none;
                 color: $base_color;         }
@@ -86,6 +88,9 @@ body {
             border: $border_all;
             float: right;
             text-align: right;
+            a {
+                font-size: 15px;
+            }
         }
     }
     /* End header */
@@ -96,6 +101,9 @@ body {
         float: left;
         margin-top: 30px;
         //height: 300px;
+        h3 {
+            font-size: 30px;
+        }
         #welcome {
             width: 100%;
             padding: 10px;
@@ -158,7 +166,7 @@ body {
                 cursor: pointer;
                 text-align: center;
                 #episodes li {
-                    margin-bottom: 3px;
+                    margin-bottom: 5px;
                     background-color: $show_summary;
                     color: $dark_text;
                     div[class*='watched_'] {
@@ -207,6 +215,10 @@ body {
         @include clearfix;
         header {
             @include grid(6);
+            #persistent_logo {
+                @include grid(5);
+                @include alpha;
+            }
         }
         #main-content {
             @include grid(6);
@@ -235,11 +247,12 @@ body {
         header {
             @include grid(12);
             #persistent_logo {
-                @include grid(8);
+                @include grid(10);
+                @include alpha;
             }
         }
         #main-content {
-            @include grid-push(2);
+            //@include grid-push(2);
         }
     }
 }

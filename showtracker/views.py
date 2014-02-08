@@ -142,20 +142,25 @@ def add_show():
         show = Show.query.filter_by(name=result['name']).first()
 
         # TMDB's "number_of_seasons" isn't accurate, so the number of seasons
-        # must be determined by the iterations through the list of seasons.
+        # must be determined by the ite rations through the list of seasons.
         season_tally = 0
         for season in result.get('seasons'):
-            print season['season_number']
-            current = api_session.seasons(form.show_id.data,
-                                          season['season_number'])
-            for episode in current.get('episodes'):
-                new_episode = Episode(title=episode['name'],
-                                      ep_number=episode['episode_number'],
-                                      ep_overview=episode['overview'],
-                                      season=season['season_number'],
-                                      show_id=show.id)
-                db.session.add(new_episode)
-            season_tally += 1
+            # Some API results include a None season
+            # "This Old House", for example...
+            if season['season_number'] is None:
+                pass
+            else:
+                print season['season_number']
+                current = api_session.seasons(form.show_id.data,
+                                              season['season_number'])
+                for episode in current.get('episodes'):
+                    new_episode = Episode(title=episode['name'],
+                                          ep_number=episode['episode_number'],
+                                          ep_overview=episode['overview'],
+                                          season=season['season_number'],
+                                          show_id=show.id)
+                    db.session.add(new_episode)
+                season_tally += 1
         new_show.total_seasons = season_tally
         db.session.commit()
 
