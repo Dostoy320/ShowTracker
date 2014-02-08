@@ -11,7 +11,7 @@
 	</div>
 	<div id='user'>
 	{% if session.username %}
-		<h3>{{ session.username }}</h3>
+		<a href="{{ url_for('admin') }}?action=landing"><h3>{{ session.username }}</h3></a>
 		<a href="{{ url_for('logout') }}">log out</a>
 	{% endif %}
 	</div>

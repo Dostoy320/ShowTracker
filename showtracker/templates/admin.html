@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id='admin_panel'>
+<div id='admin_controls'>
+	<a href="{{ url_for('admin') }}?action=delete_shows">
+		<div id='delete_show' class='admin_buttons'>Delete Shows</div>
+	</a>
+	<div id='delete_user' class='admin_buttons'>Delete <br> User</div>
+</div>
+{% if shows %}
+	<ul id='shows'>
+	  {% for show in shows %}
+
+	    <li>{{ show.name }}</a></li>
+
+	    <!-- If no shows, say this: -->
+	    {% else %}
+	    <li><em>You aren't following any shows.</em></li>
+	  {% endfor %}
+	 </ul>
+{% endif %}
+</div>
+<script src="{{ url_for('static', filename='scripts/admin.js') }}"></script>
+{% endblock %}

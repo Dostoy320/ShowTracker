@@ -205,6 +205,26 @@ def add_eps():
     return redirect(url_for('show_shows'))
 
 
+# Routes to handle user signup/login/admin:
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignupForm()
+
+    if request.method == 'POST':
+        if form.validate() is False:
+            return render_template('signup.html', form=form)
+        else:
+            new_user = User(form.username.data, form.email.data,
+                            form.password.data, ROLE_USER)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('login'))
+
+    elif request.method == 'GET':
+        return render_template('signup.html', form=form)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -233,19 +253,19 @@ def logout():
     return redirect(url_for('show_shows'))
 
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = SignupForm()
-
-    if request.method == 'POST':
-        if form.validate() is False:
-            return render_template('signup.html', form=form)
-        else:
-            new_user = User(form.username.data, form.email.data,
-                            form.password.data, ROLE_USER)
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for('login'))
-
-    elif request.method == 'GET':
-        return render_template('signup.html', form=form)
+@app.route('/admin', methods=['GET'])
+def admin():
+    print request.method
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    if request.values['action'] == 'landing':
+        print "Landing"
+        return render_template('admin.html')
+    elif request.values['action'] == 'delete_shows':
+        user = User.query.filter_by(username=session.get('username')).first()
+        usershows = UserShows.query.filter_by(user=user.id).all()
+        shows = []
+        for show in usershows:
+            shows.append(show.series)
+        print shows
+        return render_template('admin.html', shows=shows)

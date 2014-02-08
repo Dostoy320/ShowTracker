@@ -204,6 +204,44 @@ body {
                 @include grid(1.5);
             }
         }
+        #admin_panel {
+            width: 100%;
+            #admin_controls {
+                .admin_buttons {
+                    @include grid(1.5);
+                    @include inline-block;
+                    @include border-radius(5px, 5px);
+                    height: 35px;
+                    padding-top: 5px;
+                    background-color: $light_text;
+                    border: 1px solid $dark_text;
+                    color: $dark_text;
+                    text-align: center;
+                    font-size: 15px;
+                    cursor: pointer;
+                }
+                .admin_buttons:hover {
+                    background-color: $dark_text;
+                    color: $light_text;
+                    border: 1px solid $light_text;
+                }
+            }
+            #shows {
+                @include grid(4);
+                li{
+                    cursor: pointer;
+                    padding: 0 0 5px 3px;
+                }
+                li:active {
+                    color: red;
+                }
+                .del_confirm {
+                    width: 100%;
+                    text-align: center;
+
+                }
+            }
+        }
     }
 }
 
