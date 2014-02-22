@@ -5,16 +5,11 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/showtracker_style/stylesheets/style.css') }}">
 <script src="{{ url_for('static', filename='scripts/jquery-1.10.2.js') }}"></script>
 </head>
+<body>
 <div class='container'>
-<header>
+<header class="column full">
 	<div id='persistent_logo'>
 	<a href="{{ url_for('show_shows') }}"><h1>ShowTracker</h1></a>
-	</div>
-	<div id='user'>
-	{% if session.username %}
-		<a href="{{ url_for('admin') }}?action=landing"><h3>{{ session.username }}</h3></a>
-		<a href="{{ url_for('logout') }}">log out</a>
-	{% endif %}
 	</div>
 	<div id='meta-nav'>
 	{% if session.username %}
@@ -22,11 +17,19 @@
 	  <a href="{{ url_for('new_show') }}">Add Show</a>
 	{% endif %}
 	</div>
+	<div id='user'>
+	{% if session.username %}
+		<a href="{{ url_for('admin') }}?action=landing"><h3>{{ session.username }}</h3></a>
+		<a href="{{ url_for('logout') }}">log out</a>
+	{% endif %}
+	</div>
 </header>
-<div id="main-content">
+
 	{% for message in get_flashed_messages() %}
 	  <div class=flash>{{ message }}</div>
 	{% endfor %}
+
 	{% block body %}{% endblock %}
+
 </div>
-</div>
+</body>

@@ -12,7 +12,8 @@ $retina-portrait: "only screen and (min-width : 640px)";
 $retina-and-beyond: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
-$background-base: #242424;
+$background_dark: #242424;
+$background_light: #E8E8E8;
 $base_color: #4A36FF;
 $base_text: #DBDBDB;
 $dark_text: #404040;
@@ -21,14 +22,75 @@ $headings: #E8E8E8;
 $season_list: #999999;
 $show_summary: #BDBDBD;
 
-*, *:before, *:after {
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
+a:link, a:visited {
+	text-decoration: none;
+	color: $base_color;
 }
 
-.container {
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 12px;
+	body {
+		background-color: $background_light;
+		h1 { font-size: 2.2rem; }
+		h2 { font-size: 1.8rem; }
+		h3 { font-size: 1.5rem; }
+		.container {
+			margin: 0 auto;
+			max-width: 68rem;
+			width: 95%;
+			background-color: $background_light;
+			font-size: 1.2rem;
+			.column {
+				margin: 0 auto;
+				width: 100%;
+			}
+		}
+	}
+}
+
+header {
 	margin: 0 auto;
-	max-width: 960px;
-	width: 90%;
+	height: 75px;
+	#persistent_logo {
+		margin-top: 10px;
+		font-size: 2rem;
+		h1 {
+			color: #999999;
+		}
+	}
+	#meta-nav {
+		width: 60%;
+		height: 50px;
+		float: left;
+		padding-top: 20px;
+	}
+	#user {
+		float: right;
+		width: 20%;
+		height: 50px;
+	}
+}
+
+#welcome {
+	margin: 0 auto;
+	h2 {
+		margin-bottom: 10px;
+	}
+}
+
+
+
+@media #{$phone-landscape} {
+	.column {
+		float: left;
+	}
+	.column.full { width: 100%; }
+	.column.half { width: 50%; }
+	.column.third { width: 33.3%; }
 }

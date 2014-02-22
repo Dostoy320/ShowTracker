@@ -65,16 +65,108 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* Devices */
 /* Site color pallete */
-/* line 24, ../sass/style.scss */
+/* line 25, ../sass/style.scss */
+a:link, a:visited {
+  text-decoration: none;
+  color: #4a36ff;
+}
+
+/* line 30, ../sass/style.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 30, ../sass/style.scss */
-.container {
+/* line 36, ../sass/style.scss */
+html {
+  font-size: 12px;
+}
+/* line 38, ../sass/style.scss */
+html body {
+  background-color: #e8e8e8;
+}
+/* line 40, ../sass/style.scss */
+html body h1 {
+  font-size: 2.2rem;
+}
+/* line 41, ../sass/style.scss */
+html body h2 {
+  font-size: 1.8rem;
+}
+/* line 42, ../sass/style.scss */
+html body h3 {
+  font-size: 1.5rem;
+}
+/* line 43, ../sass/style.scss */
+html body .container {
   margin: 0 auto;
-  max-width: 960px;
-  width: 90%;
+  max-width: 68rem;
+  width: 95%;
+  background-color: #e8e8e8;
+  font-size: 1.2rem;
+}
+/* line 49, ../sass/style.scss */
+html body .container .column {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* line 57, ../sass/style.scss */
+header {
+  margin: 0 auto;
+  height: 75px;
+}
+/* line 60, ../sass/style.scss */
+header #persistent_logo {
+  margin-top: 10px;
+  font-size: 2rem;
+}
+/* line 63, ../sass/style.scss */
+header #persistent_logo h1 {
+  color: #999999;
+}
+/* line 67, ../sass/style.scss */
+header #meta-nav {
+  width: 60%;
+  height: 50px;
+  float: left;
+  padding-top: 20px;
+}
+/* line 73, ../sass/style.scss */
+header #user {
+  float: right;
+  width: 20%;
+  height: 50px;
+}
+
+/* line 80, ../sass/style.scss */
+#welcome {
+  margin: 0 auto;
+}
+/* line 82, ../sass/style.scss */
+#welcome h2 {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 480px) {
+  /* line 90, ../sass/style.scss */
+  .column {
+    float: left;
+  }
+
+  /* line 93, ../sass/style.scss */
+  .column.full {
+    width: 100%;
+  }
+
+  /* line 94, ../sass/style.scss */
+  .column.half {
+    width: 50%;
+  }
+
+  /* line 95, ../sass/style.scss */
+  .column.third {
+    width: 33.3%;
+  }
 }
