@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <head>
 <title>ShowTracker</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/st_style/stylesheets/style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/showtracker_style/stylesheets/style.css') }}">
 <script src="{{ url_for('static', filename='scripts/jquery-1.10.2.js') }}"></script>
 </head>
-<div id='container'>
+<div class='container'>
 <header>
 	<div id='persistent_logo'>
 	<a href="{{ url_for('show_shows') }}"><h1>ShowTracker</h1></a>

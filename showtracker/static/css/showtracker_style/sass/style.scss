@@ -1,0 +1,34 @@
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3";
+
+$border_all: 0px solid blue;
+
+/* Devices */
+$phone-landscape: "only screen and (min-width : 480px)";
+
+$retina-portrait: "only screen and (min-width : 640px)";
+
+$retina-and-beyond: "only screen and (min-width : 960px)";
+
+/* Site color pallete */
+$background-base: #242424;
+$base_color: #4A36FF;
+$base_text: #DBDBDB;
+$dark_text: #404040;
+$light_text: #BFBFBF;
+$headings: #E8E8E8;
+$season_list: #999999;
+$show_summary: #BDBDBD;
+
+*, *:before, *:after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 960px;
+	width: 90%;
+}
