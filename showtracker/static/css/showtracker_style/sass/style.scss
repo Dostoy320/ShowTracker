@@ -1,4 +1,5 @@
-@import "compass/reset";
+//@import "compass/reset";
+@import "normalize";
 @import "compass/utilities";
 @import "compass/css3";
 
@@ -12,20 +13,17 @@ $retina-portrait: "only screen and (min-width : 640px)";
 $retina-and-beyond: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
-$background_dark: #242424;
-$background_light: #E8E8E8;
-$base_color: #4A36FF;
-$base_text: #DBDBDB;
+$slate_gray: #242424;
+$dark_white: #E8E8E8;
+$light_gray: #4A36FF;
+$very_light_gray: #DBDBDB;
+$light_blue: #8ABBFF;
+$muddy_brown: #A38050;
 $dark_text: #404040;
 $light_text: #BFBFBF;
 $headings: #E8E8E8;
-$season_list: #999999;
+$season_list: #999999; /* dark gray */
 $show_summary: #BDBDBD;
-
-a:link, a:visited {
-	text-decoration: none;
-	color: $base_color;
-}
 
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -33,24 +31,38 @@ a:link, a:visited {
 	box-sizing: border-box;
 }
 
+a:link, a:visited {
+	text-decoration: none;
+	color: $muddy_brown;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
 html {
 	font-size: 12px;
+	height: 100%;
 	body {
-		background-color: $background_light;
+		background-color: $dark_white;
+		height: 100%;
 		h1 { font-size: 2.2rem; }
 		h2 { font-size: 1.8rem; }
 		h3 { font-size: 1.5rem; }
-		.container {
-			margin: 0 auto;
-			max-width: 68rem;
-			width: 95%;
-			background-color: $background_light;
-			font-size: 1.2rem;
-			.column {
-				margin: 0 auto;
-				width: 100%;
-			}
-		}
+	}
+}
+
+.container {
+	height: 100%;
+	margin: 0 auto;
+	max-width: 68rem;
+	width: 95%;
+	background-color: $dark_white;
+	font-size: 1.2rem;
+	.column {
+		margin: 0 auto;
+		width: 100%;
 	}
 }
 
@@ -74,7 +86,16 @@ header {
 		float: right;
 		width: 20%;
 		height: 50px;
+		h3 {
+			margin: 0;
+		}
 	}
+}
+.flash {
+	float: left;
+	margin: 10px 0 10px 0;
+	display: block;
+	width: 100%;
 }
 
 #welcome {
@@ -83,14 +104,75 @@ header {
 		margin-bottom: 10px;
 	}
 }
-
+#login {
+	h2 {
+		float: left;
+		width: 100%;
+		margin-top: 0px;
+	}
+	form {
+		label {
+			display: block;
+			width: 100%;
+			float: left;
+		}
+		input {
+			display: inline-block;
+		}
+	}
+}
+#signup {
+	h2 {
+		float: left;
+		width: 100%;
+	}
+	form {
+		label {
+			display: block;
+			width: 100%;
+			float: left;
+		}
+		input {
+			display: inline-block;
+		}
+	}
+}
 
 
 @media #{$phone-landscape} {
+	html {
+		body {
+			background-color: $slate_gray;
+		}
+	}
+	.container {
+		padding: 10px;
+	}
 	.column {
-		float: left;
+		//float: left;
 	}
 	.column.full { width: 100%; }
-	.column.half { width: 50%; }
+	.column.half { width: 50%; margin: 0 auto;}
 	.column.third { width: 33.3%; }
-}
+	.column.quarter { width: 25%; }
+
+	#login {
+		background-color: $light_blue;
+		width: 300px;
+		padding: 0 20px 20px 20px;
+		border-radius: 5px;
+	}
+
+	#signup {
+		background-color: $light_blue;
+		width: 300px;
+		padding: 0 20px 20px 20px;
+		border-radius: 5px;
+	}
+	#show_shows {
+		h3 {
+			width: 200px;
+		}
+	}
+
+} /* End phone-landscape media query */

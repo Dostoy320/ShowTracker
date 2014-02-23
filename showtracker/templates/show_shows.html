@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+  <div id="show_shows">
   <h3>Currently Tracking:</h3>
   <ul id='shows'>
   {% for show in shows %}
@@ -12,4 +13,5 @@
     <li><em>No shows here so far</em></li>
   {% endfor %}
   </ul>
+  </div>
 {% endblock %}

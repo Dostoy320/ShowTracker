@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+	<div id='signup' class='column'>
 	<h2>Signup</h2>
 
 	{% for message in form.username.errors %}
@@ -32,5 +33,6 @@
 		<br>
 		{{ form.submit }}
 	</form>
+	</div>
 
 {% endblock %}
