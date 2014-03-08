@@ -219,7 +219,8 @@ def signup():
                             form.password.data, ROLE_USER)
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for('login'))
+            session['new_user'] = form.username.data
+            return redirect(url_for('login', new_user=new_user))
 
     elif request.method == 'GET':
         return render_template('signup.html', form=form)
@@ -239,8 +240,11 @@ def login():
             session['username'] = username
             flash('You are logged in.')
             return redirect(url_for('show_shows'))
-
-    elif request.method == 'GET':
+    if session.get('new_user'):
+        new_user = session['new_user']
+        session.pop('new_user', None)
+        return render_template('login.html', form=form, new_user=new_user)
+    if request.method == 'GET':
         return render_template('login.html', form=form)
 
 
@@ -261,6 +265,7 @@ def admin():
     elif request.values['action'] == 'landing':
         print "Landing"
         return render_template('admin.html')
+    # List user's shows for possible deletion
     elif request.values['action'] == 'get_shows':
         user = User.query.filter_by(username=session.get('username')).first()
         usershows = UserShows.query.filter_by(user=user.id).all()
@@ -296,6 +301,7 @@ def admin():
                 'usershow_id': show.id
             })
         return render_template('admin.html', shows=shows)
+    # Delete user, end session and land on Welcome screen
     elif request.values['action'] == 'delete_user':
         user = User.query.filter_by(username=session.get('username')).first()
         shows = UserShows.query.filter_by(user=user.id).all()

@@ -6,11 +6,9 @@
 $border_all: 0px solid blue;
 
 /*Media Query Sizes*/
-$larger-than-tiny: "only screen and (min-width : 480px)";
-
-$pads-desktop: "only screen and (min-width : 640px)";
-
-$landscapepads-desktop: "only screen and (min-width : 960px)";
+$smallest-landscape: "only screen and (min-width : 480px)";
+$iphone-portrait: "only screen and (min-width : 640px)";
+$iphone-landscape: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
 $slate_gray: #242424;
@@ -26,6 +24,8 @@ $headings: #E8E8E8;
 $dark_gray: #999999;
 $show_summary: #BDBDBD;
 $emergency_red: #C9001B;
+
+
 
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -55,12 +55,14 @@ html {
 	body {
 		background-color: $dark_white;
 		height: 100%;
-		h1 { font-size: 2.5rem; }
+		min-width: 26.4rem;
+		h1 { font-size: 2.6rem; }
 		h2 {
 			font-size: 2rem;
 			float: left;
 			display: block;
 			width: 100%;
+			margin: 0 0 10px 0;
 		}
 		h3 { font-size: 1.5rem; }
 	}
@@ -83,24 +85,31 @@ html {
 
 header {
 	margin: 0 auto;
-	height: 100px;
+	height: 90px;
+	border-bottom: 2px solid $light_gray;
 	#persistent_logo {
 		margin-top: 10px;
 		font-size: 2rem;
 		h1 {
 			color: #999999;
+			margin-bottom: 0;
 		}
 	}
 	#meta-nav {
-		width: 60%;
+		font-size: 1.5rem;
+		width: 75%;
 		height: 50px;
 		float: left;
 		padding-top: 20px;
+		a:last-child {
+			margin-left: 8px;
+		}
 	}
 	#user {
 		float: right;
 		width: 20%;
 		height: 50px;
+		margin-top: 0;
 		h3 {
 			margin: 0;
 		}
@@ -114,15 +123,10 @@ header {
 }
 
 #welcome {
-	margin: 0 auto;
-	h2 {
-		margin-bottom: 10px;
-	}
+	margin: 20 auto;
 }
 #login {
-	h2 {
-		margin-top: 0px;
-	}
+	margin-top: 20px;
 	form {
 		input {
 			display: inline-block;
@@ -130,6 +134,7 @@ header {
 	}
 }
 #signup {
+	margin-top: 20px;
 	form {
 		input {
 			display: inline-block;
@@ -142,9 +147,22 @@ header {
 	}
 }
 #add_show {
-	#show_submit {
-		#submit {
-			margin-bottom: 20px;
+	margin-top: 20px;
+	#show_info {
+		h4 {
+			margin-bottom: 0;
+		}
+		#show_submit {
+			#submit {
+			margin: 5px 0 0 0;
+			float: left;
+			display: inline-block;
+			}
+		}
+		p {
+			display: inline-block;
+			margin: 0 0 0 5px;
+			padding: 0;
 		}
 	}
 }
@@ -188,9 +206,13 @@ header {
 	}
 }
 #admin_panel {
+	margin-top: 30px;
+	padding-top: 10px;
+	border-top: 2px solid $light_gray;
 	#admin_controls {
 		.admin_buttons {
 			display: inline-block;
+			font-size: 1.5rem;
 		}
 		#delete_user {
 			float: right;
@@ -200,37 +222,48 @@ header {
 	}
 	#del_shows {
 		cursor: pointer;
-	}
-	#del_shows li:hover {
-		color: $emergency_red;
+		li {
+			font-size: 1.25rem;
+			margin-bottom: 5px;
+		}
 	}
 }
 #confirm_popup {
 		display: none;
 		position: absolute;
-		left: 10%;
+		left: 15%;
 		top: 40%;
-		width: 250px;
-		height: 150px;
+		width: 240px;
+		height: 140px;
 		text-align: center;
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 		padding: 20px;
-		border: 1px solid;
-		border-radius: 3px;
+		border: 1px solid $very_light_gray;
+		border-radius: 5px;
+		background-color: $light_blue;
+		color: $dark_text;
+		@include box-shadow($light_gray 2px 2px 10px);
 		.confirm_button {
 			display: inline-block;
 			margin-top: 20px;
-			padding: 12px;
-			width: 100px;
-			height: 50px;
-			border: 1px solid;
+			padding-top: 10px;
+			width: 80px;
+			height: 40px;
+			border: 1px solid $very_light_gray;
 			border-radius: 3px;
 			cursor: pointer;
+			background-color: $very_light_gray;
+		}
+		.confirm_button:last-child {
+			margin-left: 5px;
+		}
+		.confirm_button:active {
+			background-color: white;
 		}
 	}
 
 
-@media #{$larger-than-tiny} {
+@media #{$smallest-landscape} {
 	html {
 		body {
 			background-color: $slate_gray;
@@ -266,9 +299,33 @@ header {
 			width: 200px;
 		}
 	}
+	#confirm_popup {
+		left: 30%;
+	}
 
 } /* End larger-than-tiny media query */
 
-@media #{$pads-desktop} {
-
+@media #{$iphone-portrait} {
+	html {
+		body {
+			h1 { font-size: 3.5rem; }
+			h2 { font-size: 3rem; }
+			h3 { font-size: 2.2rem; }
+		}
+	}
+	
+	header {
+		height: 110px;
+		#persistent_logo {
+			h1 {
+				margin-top: 10px;
+			}
+		}
+		#meta-nav {
+			font-size: 2.3rem;
+		}
+		#user {
+			text-align: right;
+		}
+	}
 }

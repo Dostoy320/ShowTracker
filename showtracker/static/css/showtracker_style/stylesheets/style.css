@@ -392,24 +392,26 @@ html {
 html body {
   background-color: #e8e8e8;
   height: 100%;
-}
-/* line 58, ../sass/style.scss */
-html body h1 {
-  font-size: 2.5rem;
+  min-width: 26.4rem;
 }
 /* line 59, ../sass/style.scss */
+html body h1 {
+  font-size: 2.6rem;
+}
+/* line 60, ../sass/style.scss */
 html body h2 {
   font-size: 2rem;
   float: left;
   display: block;
   width: 100%;
+  margin: 0 0 10px 0;
 }
-/* line 65, ../sass/style.scss */
+/* line 67, ../sass/style.scss */
 html body h3 {
   font-size: 1.5rem;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 .container {
   overflow: hidden;
   *zoom: 1;
@@ -421,45 +423,53 @@ html body h3 {
   background-color: #e8e8e8;
   font-size: 1.2rem;
 }
-/* line 78, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 .container .column {
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 84, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 header {
   margin: 0 auto;
-  height: 100px;
+  height: 90px;
+  border-bottom: 2px solid #bfbfbf;
 }
-/* line 87, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 header #persistent_logo {
   margin-top: 10px;
   font-size: 2rem;
 }
-/* line 90, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 header #persistent_logo h1 {
   color: #999999;
+  margin-bottom: 0;
 }
-/* line 94, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 header #meta-nav {
-  width: 60%;
+  font-size: 1.5rem;
+  width: 75%;
   height: 50px;
   float: left;
   padding-top: 20px;
 }
-/* line 100, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
+header #meta-nav a:last-child {
+  margin-left: 8px;
+}
+/* line 108, ../sass/style.scss */
 header #user {
   float: right;
   width: 20%;
   height: 50px;
+  margin-top: 0;
 }
-/* line 104, ../sass/style.scss */
+/* line 113, ../sass/style.scss */
 header #user h3 {
   margin: 0;
 }
 
-/* line 109, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 .flash {
   float: left;
   margin: 10px 0 10px 0;
@@ -467,47 +477,63 @@ header #user h3 {
   width: 100%;
 }
 
-/* line 116, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 #welcome {
-  margin: 0 auto;
-}
-/* line 118, ../sass/style.scss */
-#welcome h2 {
-  margin-bottom: 10px;
+  margin: 20 auto;
 }
 
-/* line 123, ../sass/style.scss */
-#login h2 {
-  margin-top: 0px;
+/* line 128, ../sass/style.scss */
+#login {
+  margin-top: 20px;
 }
-/* line 127, ../sass/style.scss */
+/* line 131, ../sass/style.scss */
 #login form input {
   display: inline-block;
 }
 
-/* line 134, ../sass/style.scss */
+/* line 136, ../sass/style.scss */
+#signup {
+  margin-top: 20px;
+}
+/* line 139, ../sass/style.scss */
 #signup form input {
   display: inline-block;
 }
 
-/* line 140, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 #show_shows #shows {
   font-size: 1.8rem;
 }
 
-/* line 146, ../sass/style.scss */
-#add_show #show_submit #submit {
-  margin-bottom: 20px;
+/* line 149, ../sass/style.scss */
+#add_show {
+  margin-top: 20px;
+}
+/* line 152, ../sass/style.scss */
+#add_show #show_info h4 {
+  margin-bottom: 0;
+}
+/* line 156, ../sass/style.scss */
+#add_show #show_info #show_submit #submit {
+  margin: 5px 0 0 0;
+  float: left;
+  display: inline-block;
+}
+/* line 162, ../sass/style.scss */
+#add_show #show_info p {
+  display: inline-block;
+  margin: 0 0 0 5px;
+  padding: 0;
 }
 
-/* line 152, ../sass/style.scss */
+/* line 170, ../sass/style.scss */
 #show_detail .season_select {
   font-size: 2rem;
   text-align: center;
   cursor: pointer;
   margin-bottom: 4px;
 }
-/* line 158, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 #show_detail .season_select #episodes li {
   overflow: hidden;
   *zoom: 1;
@@ -515,7 +541,7 @@ header #user h3 {
   height: 100%;
   background-color: #bfbfbf;
 }
-/* line 164, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 #show_detail .season_select #episodes div[class*="watched_"] {
   font-size: 1.5rem;
   width: 85%;
@@ -524,13 +550,13 @@ header #user h3 {
   float: left;
   cursor: pointer;
 }
-/* line 171, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 #show_detail .season_select #episodes div[class*="watched_"] #overview {
   text-align: left;
   padding: 0 0 5px 5px;
   margin-top: 10px;
 }
-/* line 177, ../sass/style.scss */
+/* line 195, ../sass/style.scss */
 #show_detail .season_select #episodes .update_ep_status {
   width: 10%;
   height: 100%;
@@ -538,89 +564,111 @@ header #user h3 {
   display: inline-block;
   cursor: pointer;
 }
-/* line 184, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 #show_detail .season_select #episodes .watched_true {
   color: #dbdbdb;
 }
 
-/* line 192, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
+#admin_panel {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 2px solid #bfbfbf;
+}
+/* line 213, ../sass/style.scss */
 #admin_panel #admin_controls .admin_buttons {
   display: inline-block;
+  font-size: 1.5rem;
 }
-/* line 195, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 #admin_panel #admin_controls #delete_user {
   float: right;
   cursor: pointer;
   color: #c9001b;
 }
-/* line 201, ../sass/style.scss */
+/* line 223, ../sass/style.scss */
 #admin_panel #del_shows {
   cursor: pointer;
 }
-/* line 204, ../sass/style.scss */
-#admin_panel #del_shows li:hover {
-  color: #c9001b;
+/* line 225, ../sass/style.scss */
+#admin_panel #del_shows li {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
 }
 
-/* line 208, ../sass/style.scss */
+/* line 231, ../sass/style.scss */
 #confirm_popup {
   display: none;
   position: absolute;
-  left: 10%;
+  left: 15%;
   top: 40%;
-  width: 250px;
-  height: 150px;
+  width: 240px;
+  height: 140px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding: 20px;
-  border: 1px solid;
-  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  background-color: #8abbff;
+  color: #404040;
+  -webkit-box-shadow: #bfbfbf 2px 2px 10px;
+  -moz-box-shadow: #bfbfbf 2px 2px 10px;
+  box-shadow: #bfbfbf 2px 2px 10px;
 }
-/* line 220, ../sass/style.scss */
+/* line 246, ../sass/style.scss */
 #confirm_popup .confirm_button {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px;
-  width: 100px;
-  height: 50px;
-  border: 1px solid;
+  padding-top: 10px;
+  width: 80px;
+  height: 40px;
+  border: 1px solid #dbdbdb;
   border-radius: 3px;
   cursor: pointer;
+  background-color: #dbdbdb;
+}
+/* line 257, ../sass/style.scss */
+#confirm_popup .confirm_button:last-child {
+  margin-left: 5px;
+}
+/* line 260, ../sass/style.scss */
+#confirm_popup .confirm_button:active {
+  background-color: white;
 }
 
 @media only screen and (min-width: 480px) {
-  /* line 235, ../sass/style.scss */
+  /* line 268, ../sass/style.scss */
   html body {
     background-color: #242424;
   }
 
-  /* line 239, ../sass/style.scss */
+  /* line 272, ../sass/style.scss */
   .container {
     padding: 10px;
   }
 
-  /* line 245, ../sass/style.scss */
+  /* line 278, ../sass/style.scss */
   .column.full {
     width: 100%;
   }
 
-  /* line 246, ../sass/style.scss */
+  /* line 279, ../sass/style.scss */
   .column.half {
     width: 50%;
     margin: 0 auto;
   }
 
-  /* line 247, ../sass/style.scss */
+  /* line 280, ../sass/style.scss */
   .column.third {
     width: 33.3%;
   }
 
-  /* line 248, ../sass/style.scss */
+  /* line 281, ../sass/style.scss */
   .column.quarter {
     width: 25%;
   }
 
-  /* line 250, ../sass/style.scss */
+  /* line 283, ../sass/style.scss */
   #login {
     background-color: #8abbff;
     width: 300px;
@@ -628,7 +676,7 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 257, ../sass/style.scss */
+  /* line 290, ../sass/style.scss */
   #signup {
     background-color: #8abbff;
     width: 300px;
@@ -637,9 +685,45 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 265, ../sass/style.scss */
+  /* line 298, ../sass/style.scss */
   #show_shows h3 {
     width: 200px;
   }
+
+  /* line 302, ../sass/style.scss */
+  #confirm_popup {
+    left: 30%;
+  }
 }
 /* End larger-than-tiny media query */
+@media only screen and (min-width: 640px) {
+  /* line 311, ../sass/style.scss */
+  html body h1 {
+    font-size: 3.5rem;
+  }
+  /* line 312, ../sass/style.scss */
+  html body h2 {
+    font-size: 3rem;
+  }
+  /* line 313, ../sass/style.scss */
+  html body h3 {
+    font-size: 2.2rem;
+  }
+
+  /* line 317, ../sass/style.scss */
+  header {
+    height: 110px;
+  }
+  /* line 320, ../sass/style.scss */
+  header #persistent_logo h1 {
+    margin-top: 10px;
+  }
+  /* line 324, ../sass/style.scss */
+  header #meta-nav {
+    font-size: 2.3rem;
+  }
+  /* line 327, ../sass/style.scss */
+  header #user {
+    text-align: right;
+  }
+}

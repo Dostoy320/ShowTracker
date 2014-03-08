@@ -15,11 +15,22 @@
 	<form action="{{ url_for('login') }}" name=login method=post>
 		{{ form.hidden_tag() }}
 
-		{{ form.username.label }}
-		{{ form.username }}
-		<br>
-		{{ form.password.label }}
-		{{ form.password }}
+		<!-- If arriving from signup page, populate username field -->
+		{% if new_user %}
+			{{ form.username.label }}
+			{{ form.username (value=new_user) }}
+			<br>
+			{{ form.password.label }}
+			{{ form.password (autofocus=true) }}
+		<!-- Arriving by other means? Don't populate, but autofocus -->
+		{% else %}
+			{{ form.username.label }}
+			{{ form.username (autofocus=true) }}
+			<br>
+			{{ form.password.label }}
+			{{ form.password }}
+		{% endif %}
+
 		<br>
 		{{ form.submit }}
 	</form>
