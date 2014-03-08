@@ -726,4 +726,9 @@ header #user h3 {
   header #user {
     text-align: right;
   }
+
+  /* line 332, ../sass/style.scss */
+  #welcome a {
+    font-size: 1.5rem;
+  }
 }
