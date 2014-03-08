@@ -23,5 +23,13 @@
 	 </ul>
 {% endif %}
 </div>
+<!-- Popup defaults to display:none -->
+<div id='confirm_popup'>
+	Are you absolutely <br> sure about this?
+		<div id='button_box'>
+			<div value='yes' class='confirm_button'>Yes</div>
+			<div value='no' class='confirm_button'>No</div>
+		</div>
+</div>
 <script src="{{ url_for('static', filename='scripts/admin.js') }}"></script>
 {% endblock %}

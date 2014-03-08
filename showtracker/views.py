@@ -258,7 +258,7 @@ def admin():
     print request.method
     if 'username' not in session:
         return redirect(url_for('login'))
-    if request.values['action'] == 'landing':
+    elif request.values['action'] == 'landing':
         print "Landing"
         return render_template('admin.html')
     elif request.values['action'] == 'get_shows':
@@ -296,3 +296,15 @@ def admin():
                 'usershow_id': show.id
             })
         return render_template('admin.html', shows=shows)
+    elif request.values['action'] == 'delete_user':
+        user = User.query.filter_by(username=session.get('username')).first()
+        shows = UserShows.query.filter_by(user=user.id).all()
+        episodes = UserEpisodes.query.filter_by(user=user.id).all()
+        for row in episodes:
+            db.session.delete(row)
+        for row in shows:
+            db.session.delete(row)
+        db.session.delete(user)
+        db.session.commit()
+        session.pop('username', None)
+        return render_template('welcome.html')

@@ -562,39 +562,65 @@ header #user h3 {
   color: #c9001b;
 }
 
+/* line 208, ../sass/style.scss */
+#confirm_popup {
+  display: none;
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  width: 250px;
+  height: 150px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+/* line 220, ../sass/style.scss */
+#confirm_popup .confirm_button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px;
+  width: 100px;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 480px) {
-  /* line 212, ../sass/style.scss */
+  /* line 235, ../sass/style.scss */
   html body {
     background-color: #242424;
   }
 
-  /* line 216, ../sass/style.scss */
+  /* line 239, ../sass/style.scss */
   .container {
     padding: 10px;
   }
 
-  /* line 222, ../sass/style.scss */
+  /* line 245, ../sass/style.scss */
   .column.full {
     width: 100%;
   }
 
-  /* line 223, ../sass/style.scss */
+  /* line 246, ../sass/style.scss */
   .column.half {
     width: 50%;
     margin: 0 auto;
   }
 
-  /* line 224, ../sass/style.scss */
+  /* line 247, ../sass/style.scss */
   .column.third {
     width: 33.3%;
   }
 
-  /* line 225, ../sass/style.scss */
+  /* line 248, ../sass/style.scss */
   .column.quarter {
     width: 25%;
   }
 
-  /* line 227, ../sass/style.scss */
+  /* line 250, ../sass/style.scss */
   #login {
     background-color: #8abbff;
     width: 300px;
@@ -602,7 +628,7 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 234, ../sass/style.scss */
+  /* line 257, ../sass/style.scss */
   #signup {
     background-color: #8abbff;
     width: 300px;
@@ -611,7 +637,7 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 242, ../sass/style.scss */
+  /* line 265, ../sass/style.scss */
   #show_shows h3 {
     width: 200px;
   }
