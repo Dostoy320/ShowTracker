@@ -261,11 +261,38 @@ def admin():
     if request.values['action'] == 'landing':
         print "Landing"
         return render_template('admin.html')
-    elif request.values['action'] == 'delete_shows':
+    elif request.values['action'] == 'get_shows':
         user = User.query.filter_by(username=session.get('username')).first()
         usershows = UserShows.query.filter_by(user=user.id).all()
         shows = []
+        # Collect series name and UserShow id (as opposed to series id)
         for show in usershows:
-            shows.append(show.series)
-        print shows
+            shows.append({
+                'name': show.series.name,
+                'usershow_id': show.id
+            })
+        return render_template('admin.html', shows=shows)
+    # Delete show records from UserShows and UserEpisodes tables
+    elif request.values['action'] == 'delete_show':
+        user = User.query.filter_by(username=session.get('username')).first()
+        usershow = UserShows.query.filter_by(id=request.values['id']).first()
+
+        # Get all UserEpisodes for a particular user, then narrow by show id
+        to_delete = UserEpisodes.query.filter_by(user=user.id) \
+            .join(UserEpisodes.episode).filter_by(show_id=usershow.show).all()
+
+        for row in to_delete:
+            db.session.delete(row)
+        db.session.delete(usershow)
+        db.session.commit()
+
+        # Repopulate show list
+        usershows = UserShows.query.filter_by(user=user.id).all()
+        shows = []
+        # Collect series name and UserShow id (as opposed to series id)
+        for show in usershows:
+            shows.append({
+                'name': show.series.name,
+                'usershow_id': show.id
+            })
         return render_template('admin.html', shows=shows)

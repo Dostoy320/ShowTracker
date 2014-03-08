@@ -5,25 +5,27 @@
 
 $border_all: 0px solid blue;
 
-/* Devices */
-$phone-landscape: "only screen and (min-width : 480px)";
+/*Media Query Sizes*/
+$larger-than-tiny: "only screen and (min-width : 480px)";
 
-$retina-portrait: "only screen and (min-width : 640px)";
+$pads-desktop: "only screen and (min-width : 640px)";
 
-$retina-and-beyond: "only screen and (min-width : 960px)";
+$landscapepads-desktop: "only screen and (min-width : 960px)";
 
 /* Site color pallete */
 $slate_gray: #242424;
 $dark_white: #E8E8E8;
-$light_gray: #4A36FF;
+$dark_blue: #4A36FF;
 $very_light_gray: #DBDBDB;
+$light_gray: #BFBFBF;
 $light_blue: #8ABBFF;
 $muddy_brown: #A38050;
 $dark_text: #404040;
-$light_text: #BFBFBF;
+
 $headings: #E8E8E8;
-$season_list: #999999; /* dark gray */
+$dark_gray: #999999;
 $show_summary: #BDBDBD;
+$emergency_red: #C9001B;
 
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -41,19 +43,32 @@ ul {
 	padding-left: 0px;
 }
 
+label {
+	display: block;
+	width: 100%;
+	float: left;
+}
+
 html {
 	font-size: 12px;
 	height: 100%;
 	body {
 		background-color: $dark_white;
 		height: 100%;
-		h1 { font-size: 2.2rem; }
-		h2 { font-size: 1.8rem; }
+		h1 { font-size: 2.5rem; }
+		h2 {
+			font-size: 2rem;
+			float: left;
+			display: block;
+			width: 100%;
+		}
 		h3 { font-size: 1.5rem; }
 	}
 }
 
 .container {
+	@include clearfix;
+	overflow: auto;
 	height: 100%;
 	margin: 0 auto;
 	max-width: 68rem;
@@ -68,7 +83,7 @@ html {
 
 header {
 	margin: 0 auto;
-	height: 75px;
+	height: 100px;
 	#persistent_logo {
 		margin-top: 10px;
 		font-size: 2rem;
@@ -106,40 +121,93 @@ header {
 }
 #login {
 	h2 {
-		float: left;
-		width: 100%;
 		margin-top: 0px;
 	}
 	form {
-		label {
-			display: block;
-			width: 100%;
-			float: left;
-		}
 		input {
 			display: inline-block;
 		}
 	}
 }
 #signup {
-	h2 {
-		float: left;
-		width: 100%;
-	}
 	form {
-		label {
-			display: block;
-			width: 100%;
-			float: left;
-		}
 		input {
 			display: inline-block;
 		}
 	}
 }
+#show_shows {
+	#shows {
+		font-size: 1.8rem;
+	}
+}
+#add_show {
+	#show_submit {
+		#submit {
+			margin-bottom: 20px;
+		}
+	}
+}
+#show_detail {
+	.season_select {
+		font-size: 2rem;
+		text-align: center;
+		cursor: pointer;
+		margin-bottom: 4px;
+		#episodes {
+			li {
+				@include clearfix;
+				margin-bottom: 1px;
+				height: 100%;
+				background-color: $light_gray;
+			}
+			div[class*="watched_"] {
+				font-size: 1.5rem;
+				width:85%;
+				margin-right: 10px;
+				display: inline-block;
+				float: left;
+				cursor: pointer;
+				#overview {
+					text-align: left;
+					padding: 0 0 5px 5px;
+					margin-top: 10px;
+				}
+			}
+			.update_ep_status {
+				width: 10%;
+				height: 100%;
+				font-size: 1.5rem;
+				display: inline-block;
+				cursor: pointer;
+			}
+			.watched_true {
+				color: $very_light_gray;
+			}
+		}
+	}
+}
+#admin_panel {
+	#admin_controls {
+		.admin_buttons {
+			display: inline-block;
+		}
+		#delete_user {
+			float: right;
+			cursor: pointer;
+			color: $emergency_red;
+		}
+	}
+	#del_shows {
+		cursor: pointer;
+	}
+	#del_shows li:hover {
+		color: $emergency_red;
+	}
+}
 
 
-@media #{$phone-landscape} {
+@media #{$larger-than-tiny} {
 	html {
 		body {
 			background-color: $slate_gray;
@@ -166,6 +234,7 @@ header {
 	#signup {
 		background-color: $light_blue;
 		width: 300px;
+		height: 300px;
 		padding: 0 20px 20px 20px;
 		border-radius: 5px;
 	}
@@ -175,4 +244,8 @@ header {
 		}
 	}
 
-} /* End phone-landscape media query */
+} /* End larger-than-tiny media query */
+
+@media #{$pads-desktop} {
+
+}

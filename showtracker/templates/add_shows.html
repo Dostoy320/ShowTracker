@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-
+    <div id="add_show">
     {% for message in form.show_name.errors %}
       <div class="flash">{{ message }}</div>
     {% endfor %}
@@ -21,10 +21,11 @@
     <ul>
     {% for choice in choices %}
       <li><a href="{{ url_for('retrieve_show') }}?value={{ choice['id'] }}">
-      {{ choice['name'] }} {{ choice['first_air_date'] }}</li>
+      {{ choice['name'] }} {{ choice['first_air_date'] }}</a></li>
     {% endfor %}
     </ul>
-    </div>
+  </div>
+  </div>
   {% endif %}
 
   <!-- Return info for specific show -->

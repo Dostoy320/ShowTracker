@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-  <div id='show_focus'>
+  <div id='show_detail'>
     <h2>{{ show.name }}</h2>
   <ul id='season_list'>
   {% for season in range(seasons) %}
@@ -16,7 +16,7 @@
   {% endfor %}
   </ul>
   <ul id='ep_list'></ul>
-
+  </div>
   <script type="text/javascript">
   // Assign Jinja2 values to JS variables
   var id = {{ show.id }};

@@ -355,53 +355,65 @@ table {
   border-spacing: 0;
 }
 
-/* Devices */
+/*Media Query Sizes*/
 /* Site color pallete */
-/* dark gray */
-/* line 28, ../sass/style.scss */
+/* line 30, ../sass/style.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 36, ../sass/style.scss */
 a:link, a:visited {
   text-decoration: none;
   color: #a38050;
 }
 
-/* line 39, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 ul {
   list-style: none;
   padding-left: 0px;
 }
 
-/* line 44, ../sass/style.scss */
+/* line 46, ../sass/style.scss */
+label {
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+/* line 52, ../sass/style.scss */
 html {
   font-size: 12px;
   height: 100%;
 }
-/* line 47, ../sass/style.scss */
+/* line 55, ../sass/style.scss */
 html body {
   background-color: #e8e8e8;
   height: 100%;
 }
-/* line 50, ../sass/style.scss */
+/* line 58, ../sass/style.scss */
 html body h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
-/* line 51, ../sass/style.scss */
+/* line 59, ../sass/style.scss */
 html body h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  float: left;
+  display: block;
+  width: 100%;
 }
-/* line 52, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 html body h3 {
   font-size: 1.5rem;
 }
 
-/* line 56, ../sass/style.scss */
+/* line 69, ../sass/style.scss */
 .container {
+  overflow: hidden;
+  *zoom: 1;
+  overflow: auto;
   height: 100%;
   margin: 0 auto;
   max-width: 68rem;
@@ -409,45 +421,45 @@ html body h3 {
   background-color: #e8e8e8;
   font-size: 1.2rem;
 }
-/* line 63, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 .container .column {
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 84, ../sass/style.scss */
 header {
   margin: 0 auto;
-  height: 75px;
+  height: 100px;
 }
-/* line 72, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 header #persistent_logo {
   margin-top: 10px;
   font-size: 2rem;
 }
-/* line 75, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 header #persistent_logo h1 {
   color: #999999;
 }
-/* line 79, ../sass/style.scss */
+/* line 94, ../sass/style.scss */
 header #meta-nav {
   width: 60%;
   height: 50px;
   float: left;
   padding-top: 20px;
 }
-/* line 85, ../sass/style.scss */
+/* line 100, ../sass/style.scss */
 header #user {
   float: right;
   width: 20%;
   height: 50px;
 }
-/* line 89, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 header #user h3 {
   margin: 0;
 }
 
-/* line 94, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 .flash {
   float: left;
   margin: 10px 0 10px 0;
@@ -455,81 +467,134 @@ header #user h3 {
   width: 100%;
 }
 
-/* line 101, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 #welcome {
   margin: 0 auto;
 }
-/* line 103, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 #welcome h2 {
   margin-bottom: 10px;
 }
 
-/* line 108, ../sass/style.scss */
+/* line 123, ../sass/style.scss */
 #login h2 {
-  float: left;
-  width: 100%;
   margin-top: 0px;
 }
-/* line 114, ../sass/style.scss */
-#login form label {
-  display: block;
-  width: 100%;
-  float: left;
-}
-/* line 119, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 #login form input {
   display: inline-block;
 }
 
-/* line 125, ../sass/style.scss */
-#signup h2 {
-  float: left;
-  width: 100%;
-}
-/* line 130, ../sass/style.scss */
-#signup form label {
-  display: block;
-  width: 100%;
-  float: left;
-}
-/* line 135, ../sass/style.scss */
+/* line 134, ../sass/style.scss */
 #signup form input {
   display: inline-block;
 }
 
+/* line 140, ../sass/style.scss */
+#show_shows #shows {
+  font-size: 1.8rem;
+}
+
+/* line 146, ../sass/style.scss */
+#add_show #show_submit #submit {
+  margin-bottom: 20px;
+}
+
+/* line 152, ../sass/style.scss */
+#show_detail .season_select {
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+/* line 158, ../sass/style.scss */
+#show_detail .season_select #episodes li {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 1px;
+  height: 100%;
+  background-color: #bfbfbf;
+}
+/* line 164, ../sass/style.scss */
+#show_detail .season_select #episodes div[class*="watched_"] {
+  font-size: 1.5rem;
+  width: 85%;
+  margin-right: 10px;
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+}
+/* line 171, ../sass/style.scss */
+#show_detail .season_select #episodes div[class*="watched_"] #overview {
+  text-align: left;
+  padding: 0 0 5px 5px;
+  margin-top: 10px;
+}
+/* line 177, ../sass/style.scss */
+#show_detail .season_select #episodes .update_ep_status {
+  width: 10%;
+  height: 100%;
+  font-size: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 184, ../sass/style.scss */
+#show_detail .season_select #episodes .watched_true {
+  color: #dbdbdb;
+}
+
+/* line 192, ../sass/style.scss */
+#admin_panel #admin_controls .admin_buttons {
+  display: inline-block;
+}
+/* line 195, ../sass/style.scss */
+#admin_panel #admin_controls #delete_user {
+  float: right;
+  cursor: pointer;
+  color: #c9001b;
+}
+/* line 201, ../sass/style.scss */
+#admin_panel #del_shows {
+  cursor: pointer;
+}
+/* line 204, ../sass/style.scss */
+#admin_panel #del_shows li:hover {
+  color: #c9001b;
+}
+
 @media only screen and (min-width: 480px) {
-  /* line 144, ../sass/style.scss */
+  /* line 212, ../sass/style.scss */
   html body {
     background-color: #242424;
   }
 
-  /* line 148, ../sass/style.scss */
+  /* line 216, ../sass/style.scss */
   .container {
     padding: 10px;
   }
 
-  /* line 154, ../sass/style.scss */
+  /* line 222, ../sass/style.scss */
   .column.full {
     width: 100%;
   }
 
-  /* line 155, ../sass/style.scss */
+  /* line 223, ../sass/style.scss */
   .column.half {
     width: 50%;
     margin: 0 auto;
   }
 
-  /* line 156, ../sass/style.scss */
+  /* line 224, ../sass/style.scss */
   .column.third {
     width: 33.3%;
   }
 
-  /* line 157, ../sass/style.scss */
+  /* line 225, ../sass/style.scss */
   .column.quarter {
     width: 25%;
   }
 
-  /* line 159, ../sass/style.scss */
+  /* line 227, ../sass/style.scss */
   #login {
     background-color: #8abbff;
     width: 300px;
@@ -537,17 +602,18 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 166, ../sass/style.scss */
+  /* line 234, ../sass/style.scss */
   #signup {
     background-color: #8abbff;
     width: 300px;
+    height: 300px;
     padding: 0 20px 20px 20px;
     border-radius: 5px;
   }
 
-  /* line 173, ../sass/style.scss */
+  /* line 242, ../sass/style.scss */
   #show_shows h3 {
     width: 200px;
   }
 }
-/* End phone-landscape media query */
+/* End larger-than-tiny media query */

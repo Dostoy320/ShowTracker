@@ -1,17 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
 <div id='admin_panel'>
-<div id='admin_controls'>
-	<a href="{{ url_for('admin') }}?action=delete_shows">
-		<div id='delete_show' class='admin_buttons'>Delete Shows</div>
-	</a>
-	<div id='delete_user' class='admin_buttons'>Delete <br> User</div>
-</div>
+	<div id='admin_controls'>
+		<div id='delete_show' class='admin_buttons'>
+			<a href="{{ url_for('admin') }}?action=get_shows">Delete Shows</a>
+		</div>
+		<div id='delete_user' class='admin_buttons'>Delete User</div>
+	</div>
 {% if shows %}
-	<ul id='shows'>
+	<ul id='del_shows'>
 	  {% for show in shows %}
 
-	    <li>{{ show.name }}</a></li>
+	    <li>
+	    <a href="{{ url_for('admin') }}?action=delete_show&id={{ show.usershow_id }}">
+	    {{ show.name }}</a>
+	    </li>
 
 	    <!-- If no shows, say this: -->
 	    {% else %}
