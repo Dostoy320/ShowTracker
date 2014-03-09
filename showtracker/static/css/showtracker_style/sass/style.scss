@@ -33,6 +33,10 @@ $emergency_red: #C9001B;
 	box-sizing: border-box;
 }
 
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 a:link, a:visited {
 	text-decoration: none;
 	color: $muddy_brown;
@@ -144,24 +148,32 @@ header {
 #show_shows {
 	#shows {
 		font-size: 1.8rem;
+		li {
+			margin-bottom: 5px;
+		}
 	}
 }
 #add_show {
 	margin-top: 20px;
+	#search_results {
+		ul li {
+			margin-bottom: 10px;
+		}
+	}
 	#show_info {
 		h4 {
 			margin-bottom: 0;
 		}
 		#show_submit {
 			#submit {
-			margin: 5px 0 0 0;
+			margin: 5px 0 5px 0;
 			float: left;
 			display: inline-block;
 			}
 		}
 		p {
 			display: inline-block;
-			margin: 0 0 0 5px;
+			margin: 5px 0 0 5px;
 			padding: 0;
 		}
 	}
@@ -171,18 +183,18 @@ header {
 		font-size: 2rem;
 		text-align: center;
 		cursor: pointer;
-		margin-bottom: 4px;
+		margin-bottom: 5px;
 		#episodes {
 			li {
 				@include clearfix;
-				margin-bottom: 1px;
+				margin-bottom: 8px;
 				height: 100%;
 				background-color: $light_gray;
 			}
 			div[class*="watched_"] {
 				font-size: 1.5rem;
 				width:85%;
-				margin-right: 10px;
+				margin: 6px 10px 0 0;
 				display: inline-block;
 				float: left;
 				cursor: pointer;
@@ -195,6 +207,7 @@ header {
 			.update_ep_status {
 				width: 10%;
 				height: 100%;
+				padding-bottom: 5px;
 				font-size: 1.5rem;
 				display: inline-block;
 				cursor: pointer;
@@ -212,7 +225,7 @@ header {
 	#admin_controls {
 		.admin_buttons {
 			display: inline-block;
-			font-size: 1.5rem;
+			font-size: 1.7rem;
 		}
 		#delete_user {
 			float: right;
@@ -223,7 +236,7 @@ header {
 	#del_shows {
 		cursor: pointer;
 		li {
-			font-size: 1.25rem;
+			font-size: 1.3rem;
 			margin-bottom: 5px;
 		}
 	}
@@ -313,7 +326,6 @@ header {
 			h3 { font-size: 2.2rem; }
 		}
 	}
-	
 	header {
 		height: 110px;
 		#persistent_logo {
