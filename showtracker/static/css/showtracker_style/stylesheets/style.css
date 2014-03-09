@@ -546,7 +546,11 @@ header #user h3 {
   cursor: pointer;
   margin-bottom: 5px;
 }
-/* line 188, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
+#show_detail .season_select #episodes {
+  margin-top: 5px;
+}
+/* line 189, ../sass/style.scss */
 #show_detail .season_select #episodes li {
   overflow: hidden;
   *zoom: 1;
@@ -554,7 +558,7 @@ header #user h3 {
   height: 100%;
   background-color: #bfbfbf;
 }
-/* line 194, ../sass/style.scss */
+/* line 195, ../sass/style.scss */
 #show_detail .season_select #episodes div[class*="watched_"] {
   font-size: 1.5rem;
   width: 85%;
@@ -563,13 +567,13 @@ header #user h3 {
   float: left;
   cursor: pointer;
 }
-/* line 201, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 #show_detail .season_select #episodes div[class*="watched_"] #overview {
   text-align: left;
   padding: 0 0 5px 5px;
   margin-top: 10px;
 }
-/* line 207, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 #show_detail .season_select #episodes .update_ep_status {
   width: 10%;
   height: 100%;
@@ -578,39 +582,39 @@ header #user h3 {
   display: inline-block;
   cursor: pointer;
 }
-/* line 215, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 #show_detail .season_select #episodes .watched_true {
   color: #dbdbdb;
 }
 
-/* line 221, ../sass/style.scss */
+/* line 222, ../sass/style.scss */
 #admin_panel {
   margin-top: 30px;
   padding-top: 10px;
   border-top: 2px solid #bfbfbf;
 }
-/* line 226, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 #admin_panel #admin_controls .admin_buttons {
   display: inline-block;
   font-size: 1.7rem;
 }
-/* line 230, ../sass/style.scss */
+/* line 231, ../sass/style.scss */
 #admin_panel #admin_controls #delete_user {
   float: right;
   cursor: pointer;
   color: #c9001b;
 }
-/* line 236, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 #admin_panel #del_shows {
   cursor: pointer;
 }
-/* line 238, ../sass/style.scss */
+/* line 239, ../sass/style.scss */
 #admin_panel #del_shows li {
   font-size: 1.3rem;
   margin-bottom: 5px;
 }
 
-/* line 244, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 #confirm_popup {
   display: none;
   position: absolute;
@@ -629,7 +633,7 @@ header #user h3 {
   -moz-box-shadow: #bfbfbf 2px 2px 10px;
   box-shadow: #bfbfbf 2px 2px 10px;
 }
-/* line 259, ../sass/style.scss */
+/* line 260, ../sass/style.scss */
 #confirm_popup .confirm_button {
   display: inline-block;
   margin-top: 20px;
@@ -641,48 +645,48 @@ header #user h3 {
   cursor: pointer;
   background-color: #dbdbdb;
 }
-/* line 270, ../sass/style.scss */
+/* line 271, ../sass/style.scss */
 #confirm_popup .confirm_button:last-child {
   margin-left: 5px;
 }
-/* line 273, ../sass/style.scss */
+/* line 274, ../sass/style.scss */
 #confirm_popup .confirm_button:active {
   background-color: white;
 }
 
 @media only screen and (min-width: 480px) {
-  /* line 281, ../sass/style.scss */
+  /* line 282, ../sass/style.scss */
   html body {
     background-color: #242424;
   }
 
-  /* line 285, ../sass/style.scss */
+  /* line 286, ../sass/style.scss */
   .container {
     padding: 10px;
   }
 
-  /* line 291, ../sass/style.scss */
+  /* line 292, ../sass/style.scss */
   .column.full {
     width: 100%;
   }
 
-  /* line 292, ../sass/style.scss */
+  /* line 293, ../sass/style.scss */
   .column.half {
     width: 50%;
     margin: 0 auto;
   }
 
-  /* line 293, ../sass/style.scss */
+  /* line 294, ../sass/style.scss */
   .column.third {
     width: 33.3%;
   }
 
-  /* line 294, ../sass/style.scss */
+  /* line 295, ../sass/style.scss */
   .column.quarter {
     width: 25%;
   }
 
-  /* line 296, ../sass/style.scss */
+  /* line 297, ../sass/style.scss */
   #login {
     background-color: #8abbff;
     width: 300px;
@@ -690,7 +694,7 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 303, ../sass/style.scss */
+  /* line 304, ../sass/style.scss */
   #signup {
     background-color: #8abbff;
     width: 300px;
@@ -699,49 +703,49 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 311, ../sass/style.scss */
+  /* line 312, ../sass/style.scss */
   #show_shows h3 {
     width: 200px;
   }
 
-  /* line 315, ../sass/style.scss */
+  /* line 316, ../sass/style.scss */
   #confirm_popup {
     left: 30%;
   }
 }
 /* End larger-than-tiny media query */
 @media only screen and (min-width: 640px) {
-  /* line 324, ../sass/style.scss */
+  /* line 325, ../sass/style.scss */
   html body h1 {
     font-size: 3.5rem;
   }
-  /* line 325, ../sass/style.scss */
+  /* line 326, ../sass/style.scss */
   html body h2 {
     font-size: 3rem;
   }
-  /* line 326, ../sass/style.scss */
+  /* line 327, ../sass/style.scss */
   html body h3 {
     font-size: 2.2rem;
   }
 
-  /* line 329, ../sass/style.scss */
+  /* line 330, ../sass/style.scss */
   header {
     height: 110px;
   }
-  /* line 332, ../sass/style.scss */
+  /* line 333, ../sass/style.scss */
   header #persistent_logo h1 {
     margin-top: 10px;
   }
-  /* line 336, ../sass/style.scss */
+  /* line 337, ../sass/style.scss */
   header #meta-nav {
     font-size: 2.3rem;
   }
-  /* line 339, ../sass/style.scss */
+  /* line 340, ../sass/style.scss */
   header #user {
     text-align: right;
   }
 
-  /* line 344, ../sass/style.scss */
+  /* line 345, ../sass/style.scss */
   #welcome a {
     font-size: 1.5rem;
   }

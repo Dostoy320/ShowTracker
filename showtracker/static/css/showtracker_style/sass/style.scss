@@ -185,6 +185,7 @@ header {
 		cursor: pointer;
 		margin-bottom: 5px;
 		#episodes {
+			margin-top: 5px;
 			li {
 				@include clearfix;
 				margin-bottom: 8px;
