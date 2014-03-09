@@ -24,7 +24,6 @@ def show_shows():
 @app.route('/show_detail')
 def show_detail():
     show_id = request.args.get('value')
-    print show_id
     show = Show.query.filter_by(id=show_id).first()
     seasons = show.total_seasons
     episodes = Episode.query.filter_by(show_id=show.id).all()

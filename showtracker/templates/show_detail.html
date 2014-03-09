@@ -6,9 +6,14 @@
   {% for season in range(seasons) %}
 
     {# This if statement handles the variation in seasons starting at 0 or 1. #}
-
     {% if episodes[0].season == 0 %}
-    <li class="season_select" season={{ season }}>Season {{ season }}</li>
+
+      {# This if statement changes the display for Season 0. #}
+      {% if season == 0 %}
+        <li class="season_select" season={{ season }}>Specials</li>
+      {% else %}
+       <li class="season_select" season={{ season }}>Season {{ season }}</li>
+      {% endif %}
     {% else %}
     <li class="season_select" season={{ season + 1 }}>Season {{ season + 1 }}</li>
     {% endif %}
