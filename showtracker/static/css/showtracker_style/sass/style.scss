@@ -128,6 +128,9 @@ header {
 
 #welcome {
 	margin: 20 auto;
+	a {
+		font-size: 1.5rem;
+	}
 }
 #login {
 	margin-top: 20px;
@@ -339,11 +342,6 @@ header {
 		}
 		#user {
 			text-align: right;
-		}
-	}
-	#welcome {
-		a {
-			font-size: 1.5rem;
 		}
 	}
 }
