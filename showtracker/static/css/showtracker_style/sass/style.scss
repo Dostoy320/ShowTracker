@@ -246,38 +246,38 @@ header {
 	}
 }
 #confirm_popup {
-		display: none;
-		position: absolute;
-		left: 15%;
-		top: 40%;
-		width: 240px;
-		height: 140px;
-		text-align: center;
-		font-size: 1.3rem;
-		padding: 20px;
+	display: none;
+	position: absolute;
+	left: 15%;
+	top: 40%;
+	width: 240px;
+	height: 140px;
+	text-align: center;
+	font-size: 1.3rem;
+	padding: 20px;
+	border: 1px solid $very_light_gray;
+	border-radius: 5px;
+	background-color: $light_blue;
+	color: $dark_text;
+	@include box-shadow($light_gray 2px 2px 10px);
+	.confirm_button {
+		display: inline-block;
+		margin-top: 20px;
+		padding-top: 10px;
+		width: 80px;
+		height: 40px;
 		border: 1px solid $very_light_gray;
-		border-radius: 5px;
-		background-color: $light_blue;
-		color: $dark_text;
-		@include box-shadow($light_gray 2px 2px 10px);
-		.confirm_button {
-			display: inline-block;
-			margin-top: 20px;
-			padding-top: 10px;
-			width: 80px;
-			height: 40px;
-			border: 1px solid $very_light_gray;
-			border-radius: 3px;
-			cursor: pointer;
-			background-color: $very_light_gray;
-		}
-		.confirm_button:last-child {
-			margin-left: 5px;
-		}
-		.confirm_button:active {
-			background-color: white;
-		}
+		border-radius: 3px;
+		cursor: pointer;
+		background-color: $very_light_gray;
 	}
+	.confirm_button:last-child {
+		margin-left: 5px;
+	}
+	.confirm_button:active {
+		background-color: white;
+	}
+}
 
 
 @media #{$smallest-landscape} {
@@ -293,10 +293,22 @@ header {
 		//float: left;
 	}
 	.column.full { width: 100%; }
-	.column.half { width: 50%; margin: 0 auto;}
+	.column.half { width: 60%; margin: 0 auto;}
 	.column.third { width: 33.3%; }
 	.column.quarter { width: 25%; }
-
+	header {
+		#persistent_logo {
+			margin-top: 5px;
+			h1 {
+				margin-top: 0px;
+			}
+		}
+	}
+	#welcome {
+		p {
+			margin-bottom: 0
+		}
+	}
 	#login {
 		background-color: $light_blue;
 		width: 300px;
@@ -307,7 +319,7 @@ header {
 	#signup {
 		background-color: $light_blue;
 		width: 300px;
-		height: 300px;
+		height: 200px;
 		padding: 0 20px 20px 20px;
 		border-radius: 5px;
 	}
@@ -343,5 +355,8 @@ header {
 		#user {
 			text-align: right;
 		}
+	}
+	#signup {
+		height: 220px;
 	}
 }

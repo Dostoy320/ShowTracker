@@ -676,7 +676,7 @@ header #user h3 {
 
   /* line 296, ../sass/style.scss */
   .column.half {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
   }
 
@@ -691,6 +691,20 @@ header #user h3 {
   }
 
   /* line 300, ../sass/style.scss */
+  header #persistent_logo {
+    margin-top: 5px;
+  }
+  /* line 302, ../sass/style.scss */
+  header #persistent_logo h1 {
+    margin-top: 0px;
+  }
+
+  /* line 308, ../sass/style.scss */
+  #welcome p {
+    margin-bottom: 0;
+  }
+
+  /* line 312, ../sass/style.scss */
   #login {
     background-color: #8abbff;
     width: 300px;
@@ -698,54 +712,59 @@ header #user h3 {
     border-radius: 5px;
   }
 
-  /* line 307, ../sass/style.scss */
+  /* line 319, ../sass/style.scss */
   #signup {
     background-color: #8abbff;
     width: 300px;
-    height: 300px;
+    height: 200px;
     padding: 0 20px 20px 20px;
     border-radius: 5px;
   }
 
-  /* line 315, ../sass/style.scss */
+  /* line 327, ../sass/style.scss */
   #show_shows h3 {
     width: 200px;
   }
 
-  /* line 319, ../sass/style.scss */
+  /* line 331, ../sass/style.scss */
   #confirm_popup {
     left: 30%;
   }
 }
 /* End larger-than-tiny media query */
 @media only screen and (min-width: 640px) {
-  /* line 328, ../sass/style.scss */
+  /* line 340, ../sass/style.scss */
   html body h1 {
     font-size: 3.5rem;
   }
-  /* line 329, ../sass/style.scss */
+  /* line 341, ../sass/style.scss */
   html body h2 {
     font-size: 3rem;
   }
-  /* line 330, ../sass/style.scss */
+  /* line 342, ../sass/style.scss */
   html body h3 {
     font-size: 2.2rem;
   }
 
-  /* line 333, ../sass/style.scss */
+  /* line 345, ../sass/style.scss */
   header {
     height: 110px;
   }
-  /* line 336, ../sass/style.scss */
+  /* line 348, ../sass/style.scss */
   header #persistent_logo h1 {
     margin-top: 10px;
   }
-  /* line 340, ../sass/style.scss */
+  /* line 352, ../sass/style.scss */
   header #meta-nav {
     font-size: 2.3rem;
   }
-  /* line 343, ../sass/style.scss */
+  /* line 355, ../sass/style.scss */
   header #user {
     text-align: right;
+  }
+
+  /* line 359, ../sass/style.scss */
+  #signup {
+    height: 220px;
   }
 }
