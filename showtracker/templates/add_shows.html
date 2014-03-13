@@ -14,7 +14,12 @@
       {{ form.search }}
     </form>
 
-  <!-- Return list of shows from query -->
+  <!-- If no search results found, detect variable "empty" -->
+  {% if empty %}
+    <div class="flash">Sorry, no results found.</div>
+  {% endif %}
+
+  <!-- Else return list of shows from query -->
   {% if choices %}
   <div id='search_results'>
   <p>Results for <strong>{{ choices[0]['name'] }}</strong>:</p>
