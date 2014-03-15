@@ -47,7 +47,7 @@ for row in rows:
 
             #print committed_episode.id
             users_tracking = UserShows.query.filter_by(show=row.id).all()
-            print "This is the first user:"
+            #print "This is the first user:"
             print users_tracking[0].user
             for user in users_tracking:
                 user_episode = UserEpisodes(user=user.user,
