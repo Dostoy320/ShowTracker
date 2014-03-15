@@ -29,7 +29,7 @@ $('.season_select').on('click', function() {
       $(current).append("<ul id='episodes'></ul>");
       for (i in data){
         $('#episodes').append("<li><div class=watched_" + data[i][2] + " ep=" +
-          data[i][1] + ">" + data[i][0] + "</div><div class=update_ep_status>X</div></li>");
+          data[i][1] + ">" + data[i][0] + "</div><div class=update_ep_status>O</div></li>");
       }
       watchedStatus();
       episodeOverview();
