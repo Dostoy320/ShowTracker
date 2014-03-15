@@ -77,11 +77,9 @@ class AddShow(Form):  # Corresponds to add_shows.html
     def validate_unique(self):
         user = User.query.filter_by(username=session.get('username')).first()
         show = Show.query.filter_by(tmdb_id=self.show_id.data).first()
-        if show:
-            show = UserShows.query.filter_by(user=user.id)\
+        usershow = UserShows.query.filter_by(user=user.id)\
                 .filter_by(show=show.id).first()
-        if show:
-            # Why can't I append() to errors here?
+        if usershow:
             return False
         else:
             return True

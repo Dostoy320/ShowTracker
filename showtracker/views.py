@@ -144,7 +144,7 @@ def add_show():
         show = Show.query.filter_by(name=result['name']).first()
 
         # TMDB's "number_of_seasons" isn't accurate, so the number of seasons
-        # must be determined by the ite rations through the list of seasons.
+        # must be determined by the iterations through the list of seasons.
         season_tally = 0
         for season in result.get('seasons'):
             # Some API results include a None season
