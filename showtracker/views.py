@@ -88,10 +88,13 @@ def new_show():
         else:
             api_session = MovieDatabase()
             result = api_session.search(form.show_name.data)
+            # Send "empty" variable to trigger no results message in template
             if result == []:
-                return render_template('add_shows.html', form=form, empty="this")
+                return render_template('add_shows.html',
+                                       form=form, empty="empty")
             else:
-                return render_template('add_shows.html', form=form, choices=result)
+                return render_template('add_shows.html',
+                                       form=form, choices=result)
     elif request.method == 'GET':
         return render_template('add_shows.html', form=form)
 
