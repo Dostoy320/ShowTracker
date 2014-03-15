@@ -1,0 +1,16 @@
+.empty, .full{
+	background: url(sprites.png) no-repeat;
+}
+
+.empty{
+	background-position: 0 0;
+	width: 14px;
+	height: 14px;
+}
+
+.full{
+	background-position: 0 -15px ;
+	width: 14px;
+	height: 14px;
+}
+

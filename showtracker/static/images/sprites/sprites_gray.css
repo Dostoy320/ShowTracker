@@ -1,0 +1,16 @@
+.empty_gray, .full_gray{
+	background: url(sprites.png) no-repeat;
+}
+
+.empty_gray{
+	background-position: 0 0;
+	width: 12px;
+	height: 12px;
+}
+
+.full_gray{
+	background-position: 0 -13px ;
+	width: 12px;
+	height: 12px;
+}
+
