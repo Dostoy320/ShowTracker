@@ -77,9 +77,13 @@ class AddShow(Form):  # Corresponds to add_shows.html
     def validate_unique(self):
         user = User.query.filter_by(username=session.get('username')).first()
         show = Show.query.filter_by(tmdb_id=self.show_id.data).first()
-        usershow = UserShows.query.filter_by(user=user.id)\
-            .filter_by(show=show.id).first()
-        if usershow:
-            return False
+
+        # UserShows query needs to happen after verifying that show exists or
+        # the query throws a NoneType error when trying to filter by show.
+        if show:
+            usershow = UserShows.query.filter_by(user=user.id)\
+                .filter_by(show=show.id).first()
+            if usershow:
+                return False
         else:
             return True

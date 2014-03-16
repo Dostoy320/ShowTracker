@@ -69,6 +69,7 @@ class UserEpisodes(db.Model):
     episode_id = db.Column(db.Integer, db.ForeignKey('episode.id'))
     watched = db.Column(db.Boolean, default=False)
     date_watched = db.Column(db.DateTime)
+    rating = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return "<UserEpisodes(user'%s', episode='%s', watched='%s')>" % (
