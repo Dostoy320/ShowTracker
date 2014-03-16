@@ -118,7 +118,7 @@ function watchedStatus() {
   $('.rating, .empty_gray, .full_gray').on('click', function(event) {
     // Stop click event from bubbling up to .season_select click
     event.stopPropagation();
-    alert('rating system goes here');
+    alert('rating system goes here!');
     // Assigning this to variable so I can use it in the success function
     // I'm not at all sure if this is OK, but it works.
     var current = $(this).prev();
