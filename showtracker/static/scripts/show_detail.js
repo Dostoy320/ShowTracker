@@ -47,10 +47,14 @@ function watchedStatus() {
   $('.rating, .empty_gray, .full_gray').on('click', function(event) {
     // Stop click event from bubbling up to .season_select click
     event.stopPropagation();
-    alert('this');
+
     // Assigning this to variable so I can use it in the success function
     // I'm not at all sure if this is OK, but it works.
     var current = $(this).prev();
+
+    var empty_large = "<div class=empty_large></div>";
+    var full_large = "<div class=full_large></div>";
+    current.append("<div id='rating_popup'><p>Rate it!</p><div id='circles'>" + empty_large + empty_large + empty_large + empty_large + empty_large + "</div>");
     if (current.attr('class') == 'watched_true') {
       return true;
     } else {
@@ -114,7 +118,7 @@ function episodeOverview() {
   });
 }
 
-function watchedStatus() {
+/*function watchedStatus() {
   $('.rating, .empty_gray, .full_gray').on('click', function(event) {
     // Stop click event from bubbling up to .season_select click
     event.stopPropagation();
@@ -139,4 +143,4 @@ function watchedStatus() {
       });
      }
   });
-}
+}*/
