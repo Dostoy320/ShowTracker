@@ -212,24 +212,41 @@ header {
 			}
 			div[class*="watched_"] {
 				font-size: 1.5rem;
-				width:85%;
+				width:100%;
 				margin: 6px 10px 0 0;
 				display: inline-block;
 				float: left;
 				cursor: pointer;
+				.rating {
+					width: 100px;
+					margin: 0 auto;
+					height: 100%;
+					padding-bottom: 5px;
+					font-size: 1.5rem;
+					display: block;
+					z-index: 100;
+					cursor: pointer;
+					.empty_gray, .full_gray {
+						background: url(../../../images/sprites/sprites_gray.png) repeat;
+						display: inline-block;
+						margin-left: 3px;
+					}
+					.empty_gray {
+						background-position: 0 0;
+						width: 12px;
+						height: 12px;
+					}
+					.full_gray {
+						background-position: 0 -13px ;
+						width: 12px;
+						height: 12px;
+					}
+				}
 				#overview {
 					text-align: left;
 					padding: 0 0 5px 5px;
 					margin-top: 10px;
 				}
-			}
-			.update_ep_status {
-				width: 10%;
-				height: 100%;
-				padding-bottom: 5px;
-				font-size: 1.5rem;
-				display: inline-block;
-				cursor: pointer;
 			}
 			.watched_true {
 				color: $very_light_gray;
@@ -373,5 +390,18 @@ header {
 	}
 	#signup {
 		height: 220px;
+	}
+	#show_detail {
+		.season_select {
+			#episodes {
+				div[class*="watched_"] {
+					width: 85%;
+					.rating {
+						display: inline-block;
+						margin: 0 0 0 20px;
+					}
+				}
+			}
+		}
 	}
 }

@@ -10,3 +10,5 @@ data_design.ods
 .~lock.data_design.ods#
 showtracker/static/css/st_style/.sass-cache/
 showtracker/static/css/st_style/config.rb
+showtracker/static/css/showtracker_style/config.rb
+showtracker/static/css/showtracker_style/.sass-cache/

@@ -33,11 +33,11 @@ def show_detail():
 
 @app.route('/episode_detail')
 def episode_detail():
-    user = User.query.filter_by(username=session.get('username')).first()
+    user_id = session.get('id')
     show_id = request.args.get('id')
     season = request.args.get('season')
     episodes = UserEpisodes.query \
-        .filter_by(user=user.id).join(UserEpisodes.episode) \
+        .filter_by(user=user_id).join(UserEpisodes.episode) \
         .filter_by(show_id=show_id).filter_by(season=season).all()
     if episodes != "":
         episodes_d = {}
@@ -51,11 +51,23 @@ def episode_detail():
 
 @app.route('/episode_overview')
 def episode_overview():
+    user_id = session.get('id')
     ep_number = request.args.get('ep_number')
     episode = Episode.query.filter_by(id=ep_number).first()
+
+    # Query UserEpisodes to get episode rating
+    user_episode = UserEpisodes.query \
+        .filter_by(user=user_id) \
+        .filter_by(episode_id=ep_number).first()
+    episode_info = {}
     if episode.ep_overview == "":
-        episode.ep_overview = "Sorry, no overview available."
-    return episode.ep_overview
+        episode_info[0] = "Sorry, no overview available."
+        episode_info[1] = user_episode.rating
+    else:
+        episode_info[0] = episode.ep_overview
+        #episode_info[1] = user_episode.rating
+        episode_info[1] = 3
+    return jsonify(episode_info)
 
 
 @app.route('/episode_status')
@@ -241,8 +253,10 @@ def login():
         else:
             # Get the case-correct username for session use
             username = User.query.filter(User.username.ilike
-                                        (form.username.data)).first().username
-            session['username'] = username
+                                        (form.username.data)).first()
+            session['username'] = username.username
+            session['id'] = username.id
+
             flash('You are logged in.')
             return redirect(url_for('show_shows'))
     if session.get('new_user'):
