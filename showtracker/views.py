@@ -8,6 +8,11 @@ from flask import render_template, session, flash, redirect, url_for, \
     request, abort, jsonify
 
 
+@app.route('/test')
+def test_page():
+    return render_template('test_page.html')
+
+
 @app.route('/')
 def show_shows():
     if session.get('username'):
@@ -65,9 +70,29 @@ def episode_overview():
         episode_info[1] = user_episode.rating
     else:
         episode_info[0] = episode.ep_overview
-        #episode_info[1] = user_episode.rating
-        episode_info[1] = 3
+        episode_info[1] = user_episode.rating
+        #episode_info[1] = 3
     return jsonify(episode_info)
+
+# These ajax routes should have methods specified!!!!
+# So do that.
+
+
+@app.route('/episode_rating')
+def episode_rating():
+    user_id = session.get('id')
+    ep_number = request.args.get('ep_number')
+    rating = request.args.get('ep_rating')
+    user_episode = UserEpisodes.query \
+        .filter_by(user=user_id) \
+        .filter_by(episode_id=ep_number).first()
+    # Update query with new rating value
+    user_episode.rating = rating
+    db.session.commit()
+    # return the new value
+    success = {}
+    success[0] = user_episode.rating
+    return jsonify(success)
 
 
 @app.route('/episode_status')

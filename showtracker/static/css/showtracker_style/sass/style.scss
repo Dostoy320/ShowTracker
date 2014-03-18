@@ -243,7 +243,7 @@ header {
 					}
 					#rating_popup {
 						width: 200px;
-						height: 75px;
+						height: 100px;
 						padding: 5px;
 						background-color: $slate_gray;
 						color: $very_light_gray;
@@ -256,17 +256,17 @@ header {
 							margin: 3px 0 8px 0;
 						}
 						#circles {
-							width: 150px;
+							width: 180px;
 							margin: 0 auto;
 							.empty_large, .full_large {
-								background: url(../../../images/sprites/sprites.png);
+								background: url(../../../images/sprites/sprites.png), no-repeat;
 								display: inline-block;
 							}
 							.empty_large:not(:first-child) {
-								margin-left: 10px;
+								margin-left: 15px;
 							}
 							.full_large:not(:first-child) {
-								margin-left: 10px;
+								margin-left: 15px;
 							}
 							.empty_large {
 								background-position: 0 15;
@@ -397,6 +397,19 @@ header {
 	#show_shows {
 		h3 {
 			width: 200px;
+		}
+	}
+	#show_detail {
+		.season_select {
+			#episodes {
+				div[class*="watched_"] {
+					.rating {
+						#rating_popup {
+							left: 30%;
+						}
+					}
+				}
+			}
 		}
 	}
 	#confirm_popup {
