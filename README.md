@@ -1,50 +1,47 @@
 #ShowTracker
-This app tracks your progress through the seasons of televisions shows. The idea
-originally came to me after I downloaded all **110** episodes of Northern Exposure and 
+This app tracks progress through the seasons of television shows. The idea
+ came to me after I downloaded all 110 episodes of Northern Exposure and 
 struggled to keep track of my progress because I watched episodes often weeks, and sometimes months, apart.
 For a while I just maintained a txt file, but I figured there had to be a better 
 way.
 
 The app uses the [The Movie Database](http://www.themoviedb.org/) API to retrieve
-the data for a given show!
+the data for a given show.
 
-###Development-level stuff:
+###Development stuff:
 ####Current stack:
-+ 960 Grid System
-+ Sass/Compass (css framework)
++ flask (python web framework)
 + Jinja2 (HTML templating)
-+ flask (python web framework )
++ SQLAlchemy
++ Sass/Compass (css framework)
+
 
 ####Database creation:
-+ from /showtracker/: `python db_create.py`
++ In showtracker/config.py set `SQLALCHEMY_DATABASE_URI`
++ Then from /showtracker/: `python db_create.py`
 
-####Work with the API in the python shell:
+####Work with The Movie Database API in the python shell:
 + `from api_parser import MovieDatabase`
 + Initialize session: `sess = MovieDatabase()`
-+ Use methods:
++ Methods:
     + `search()`: takes string query to locate show ID on TMDB
     + `retrieve()`: takes the show ID to gather specifics such as number of seasons
     + `seasons()`: takes the show ID and a season number and returns episodes
 + Example case:
-    + `sess = MovieDatabase()`
-    + `show = sess.search('northern exposure')`
-    + `show = sess.retrieve(4396)`
-    + `season1 = sess.seasons(4396, 1)`
+    + `>>> sess = MovieDatabase()`
+    + `>>> show = sess.search('northern exposure')`
+    + `>>> show = sess.retrieve(4396)`
+    + `>>> season1 = sess.seasons(4396, 1)`
 + Pretty Print is nice for reading the results: `from pprint import pprint`
     + `pprint(season1)`
-
-####CSS work with Sass/Compass:
-+ From `static/css/`:
-    + `subl st_style/` - Opens the project in SublimeText
-    + `compass watch st_style/`- Watches for changes to .scss and updates .css
 
 
 ####ToDo:
 + <del>Fix signup validation to halt duplicate usernames</del>
 + <del>Tie users to specific shows - *This is huge. Figure it out!*</del>
-+ Prevent duplicate shows per user
++ <del> Prevent duplicate shows per user </del>
 + Stop neglecting tests
-+ Develop an environment where users can manipulate/delete shows/seasons/episodes
++ <del> Develop an environment where users can manipulate/delete shows/seasons/episodes </del>
 + <del>Check for existing show in database before adding duplicate</del>
 + Enable logging (to email?)
 + Work on styling with priority on mobile
