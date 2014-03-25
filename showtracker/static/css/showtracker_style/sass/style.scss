@@ -84,6 +84,10 @@ html {
 			margin: 0 0 10px 0;
 		}
 		h3 { font-size: 1.5rem; }
+		h6 {
+			font-size: 1rem;
+			margin: 0 auto;
+		}
 	}
 }
 
@@ -197,102 +201,111 @@ header {
 	}
 }
 #show_detail {
-	.season_select {
-		font-size: 2rem;
-		text-align: center;
-		cursor: pointer;
-		margin-bottom: 5px;
-		#episodes {
-			margin-top: 5px;
-			li {
-				@include clearfix;
-				margin-bottom: 8px;
-				height: 100%;
-				background-color: $light_gray;
-			}
-			div[class*="watched_"] {
-				font-size: 1.5rem;
-				width:100%;
-				margin: 6px 10px 0 0;
-				display: inline-block;
-				float: left;
-				cursor: pointer;
-				.rating {
-					width: 100px;
-					margin: 0 auto;
+	h2 {
+		margin-top: 5px;
+	}
+	#season_list {
+		clear: both;
+		.season_select {
+			min-height: 40px;
+			font-size: 2rem;
+			text-align: center;
+			cursor: pointer;
+			margin-bottom: 5px;
+			#episodes {
+				margin-top: 5px;
+				li {
+					@include clearfix;
+					margin-bottom: 8px;
 					height: 100%;
-					padding-bottom: 5px;
+					background-color: $light_gray;
+				}
+				div[class*="watched_"] {
 					font-size: 1.5rem;
-					display: block;
-					z-index: 100;
+					width:100%;
+					min-height: 40px;
+					margin: 6px 10px 0 0;
+					display: inline-block;
+					float: left;
 					cursor: pointer;
-					.empty_gray, .full_gray {
-						background: url(../../../images/sprites/sprites_gray.png);
-						display: inline-block;
-						margin-left: 3px;
-					}
-					.empty_gray {
-						background-position: 0 0;
-						width: 12px;
-						height: 12px;
-					}
-					.full_gray {
-						background-position: 0 -13px ;
-						width: 12px;
-						height: 12px;
-					}
-					#rating_popup {
-						width: 200px;
-						height: 100px;
-						padding: 5px;
-						background-color: $slate_gray;
-						color: $very_light_gray;
-						position: absolute;
-						top: 50%;
-						left: 20%;
-						border: 1px solid $dark_gray;
-						border-radius: 5px;
-						p {
-							margin: 3px 0 8px 0;
+					.rating {
+						width: 100px;
+						margin: 0 auto;
+						height: 100%;
+						padding-bottom: 5px;
+						font-size: 1.5rem;
+						display: block;
+						z-index: 100;
+						cursor: pointer;
+						.empty_gray, .full_gray {
+							background: url(../../../images/sprites/sprites_gray.png);
+							display: inline-block;
+							margin-left: 3px;
 						}
-						#circles {
-							width: 180px;
-							margin: 0 auto;
-							.empty_large, .full_large {
-								background: url(../../../images/sprites/sprites.png), no-repeat;
-								display: inline-block;
+						.empty_gray {
+							background-position: 0 0;
+							width: 12px;
+							height: 12px;
+						}
+						.full_gray {
+							background-position: 0 -13px ;
+							width: 12px;
+							height: 12px;
+						}
+						#rating_popup {
+							width: 200px;
+							height: 100px;
+							padding: 5px;
+							background-color: $slate_gray;
+							color: $very_light_gray;
+							position: absolute;
+							top: 50%;
+							left: 20%;
+							border: 1px solid $dark_gray;
+							border-radius: 5px;
+							p {
+								margin: 3px 0 8px 0;
 							}
-							.empty_large:not(:first-child) {
-								margin-left: 15px;
-							}
-							.full_large:not(:first-child) {
-								margin-left: 15px;
-							}
-							.empty_large {
-								background-position: 0 15;
-								width: 14px;
-								height: 14px;
-							}
-							.full_large {
-								background-position: 0 -15px;
-								width: 14px;
-								height: 14px;
+							#circles {
+								width: 180px;
+								margin: 0 auto;
+								.empty_large, .full_large {
+									background: url(../../../images/sprites/sprites.png), no-repeat;
+									display: inline-block;
+								}
+								.empty_large:not(:first-child) {
+									margin-left: 15px;
+								}
+								.full_large:not(:first-child) {
+									margin-left: 15px;
+								}
+								.empty_large {
+									background-position: 0 15;
+									width: 14px;
+									height: 14px;
+								}
+								.full_large {
+									background-position: 0 -15px;
+									width: 14px;
+									height: 14px;
+								}
 							}
 						}
+					}
+					#overview {
+						text-align: left;
+						padding: 0 0 5px 5px;
+						margin-top: 10px;
 					}
 				}
-				#overview {
-					text-align: left;
-					padding: 0 0 5px 5px;
-					margin-top: 10px;
+				.watched_true {
+					color: $very_light_gray;
 				}
-			}
-			.watched_true {
-				color: $very_light_gray;
 			}
 		}
 	}
 }
+
 #admin_panel {
 	margin-top: 30px;
 	padding-top: 10px;

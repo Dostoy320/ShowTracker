@@ -88,30 +88,37 @@ def episode_rating():
         .filter_by(episode_id=ep_number).first()
     # Update query with new rating value
     user_episode.rating = rating
+    # If this is  the first time rating, set this:
+    if user_episode.watched is False:
+        user_episode.watched = True
+        user_episode.date_watched = datetime.now()
+
     db.session.commit()
     # return the new value
     success = {}
     success[0] = user_episode.rating
+
     return jsonify(success)
 
-
-@app.route('/episode_status')
-def episode_status():
-    user = User.query.filter_by(username=session.get('username')).first()
-    episode_id = request.args.get('ep_id')
-    status = request.args.get('status')
-    query = UserEpisodes.query \
-        .filter_by(episode_id=episode_id) \
-        .filter_by(user=user.id).first()
-    if status == "watched":
-        query.watched = True
-        query.date_watched = datetime.now()
-        result = {"watched": "true"}
-    else:
-        query.watched = False
-        result = {"watched": "false"}
-    db.session.commit()
-    return jsonify(result)
+# Unused route??????
+#
+# @app.route('/episode_status')
+# def episode_status():
+#     user = User.query.filter_by(username=session.get('username')).first()
+#     episode_id = request.args.get('ep_id')
+#     status = request.args.get('status')
+#     query = UserEpisodes.query \
+#         .filter_by(episode_id=episode_id) \
+#         .filter_by(user=user.id).first()
+#     if status == "watched":
+#         query.watched = True
+#         query.date_watched = datetime.now()
+#         result = {"watched": "true"}
+#     else:
+#         query.watched = False
+#         result = {"watched": "false"}
+#     db.session.commit()
+#     return jsonify(result)
 
 
 @app.route('/new', methods=['GET', 'POST'])

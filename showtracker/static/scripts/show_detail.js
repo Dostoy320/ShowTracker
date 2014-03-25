@@ -67,7 +67,7 @@ function ratingPopupBuilder(rating) {
 
 // Receive rating from rating popup"
 
-function getRating() {
+function getRating(parent) {
   $('.full_large, .empty_large').on('click', function(event) {
     event.stopPropagation();
     var position = $(this).attr('position');
@@ -76,14 +76,21 @@ function getRating() {
     var episode_number = dataString;
     dataString = episode_number + "&ep_rating=" + position;
 
+    // I moved this out of the ajax success setting so the rating
+    // feels more responsive. (Don't have to wait for the server response)
+    rating_popup = ratingPopupBuilder(position);
+    $('#rating_popup').remove();
+    $('.rating').append(rating_popup);
+
     $.ajax({
       url: $SCRIPT_ROOT + "/episode_rating",
       data: dataString,
       dataType: "json",
-      success: function(data) {
-        rating_popup = ratingPopupBuilder(data[0])
-        $('#rating_popup').remove();
-        $('.rating').append(rating_popup);
+      success: function() {
+        parent.attr('class', 'watched_true');
+      },
+      error: function() {
+        alert("Something went wrong...");
       }
     });
     // Resetting dataString to stop string from building on old concat
@@ -102,9 +109,10 @@ function watchedStatus() {
     // Stop click event from bubbling up to .season_select click
     event.stopPropagation();
 
-    // Assigning this to variable so I can use it in the success function
-    // I'm not at all sure if this is OK, but it works.
     var current = $(this).prev();
+
+    // Get parent div object to pass to getRating()
+    var parentClass = current.closest('div[class^="watched_"]');
 
     // Get rating of current episode
     currentRating = current.parent('.rating').attr('rating');
@@ -113,7 +121,8 @@ function watchedStatus() {
 
     current.append(string_rating_element);
 
-    getRating();
+    // pass parent div object to update on AJAX success
+    getRating(parentClass);
   });
 }
 
@@ -142,6 +151,7 @@ function episodeOverview() {
           // Construct string of divs for rating display;
           totalFull = data[1];
           totalEmpty = 5 - totalFull
+
           // Add a 'full' div for each rating
           for (var i=0; i < totalFull; i++) {
             currentRating = currentRating + full;
@@ -150,6 +160,7 @@ function episodeOverview() {
           for (var i=0; i < totalEmpty; i++) {
             currentRating = currentRating + empty;
           }
+
           current.append("<div class='rating' rating='" + totalFull + "' ep='" + current.attr('ep') + "'>" + currentRating + "</div>")
           current.append("<div id='overview'>" + data[0] + "</div");
 
